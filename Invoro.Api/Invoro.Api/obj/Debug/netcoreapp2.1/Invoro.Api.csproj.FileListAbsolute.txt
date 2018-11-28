@@ -1,0 +1,14 @@
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\bin\Debug\netcoreapp2.1\Invoro.Api.deps.json
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\bin\Debug\netcoreapp2.1\Invoro.Api.runtimeconfig.json
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\bin\Debug\netcoreapp2.1\Invoro.Api.runtimeconfig.dev.json
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\bin\Debug\netcoreapp2.1\Invoro.Api.dll
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\bin\Debug\netcoreapp2.1\Invoro.Api.pdb
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\obj\Debug\netcoreapp2.1\Invoro.Api.csprojAssemblyReference.cache
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\obj\Debug\netcoreapp2.1\Invoro.Api.csproj.CoreCompileInputs.cache
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\obj\Debug\netcoreapp2.1\Invoro.Api.RazorAssemblyInfo.cache
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\obj\Debug\netcoreapp2.1\Invoro.Api.RazorAssemblyInfo.cs
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\obj\Debug\netcoreapp2.1\Invoro.Api.AssemblyInfoInputs.cache
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\obj\Debug\netcoreapp2.1\Invoro.Api.AssemblyInfo.cs
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\obj\Debug\netcoreapp2.1\Invoro.Api.RazorTargetAssemblyInfo.cache
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\obj\Debug\netcoreapp2.1\Invoro.Api.dll
+C:\Users\Mizrahi\Documents\Git Repository\YogiBear\InVoRo\Invoro.Api\Invoro.Api\obj\Debug\netcoreapp2.1\Invoro.Api.pdb
