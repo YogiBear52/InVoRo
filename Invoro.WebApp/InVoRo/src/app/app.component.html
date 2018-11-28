@@ -4,12 +4,12 @@
     Welcome to {{ title }}!
   </h1>  
 
-  <div *ngFor="let feature of features">
+  <div *ngFor='let feature of features | async'>
     <div>
-      {{ feature.Name }}      
+      {{ feature.name }}      
     </div>
     <div>
-      {{ feature.Status }}
+      {{ feature.status }}
     </div>
   </div>
 <router-outlet></router-outlet>

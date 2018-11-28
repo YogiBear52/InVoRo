@@ -1,4 +1,4 @@
 export class Feature {
-    public Name:string;
-    public Status:string;
+    public name:string;
+    public status:string;
 }

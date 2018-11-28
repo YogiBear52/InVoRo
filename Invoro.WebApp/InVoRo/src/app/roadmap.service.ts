@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class RoadmapService {
-    private readonly ROADMAP_SERVICE_URL ="localhost:5001"
+    private readonly ROADMAP_SERVICE_URL ="https://localhost:5001/api/Features"
 
     constructor(private http: HttpClient) {
 
     }
 
-   getFeatures(): Observable<Feature[]> {
+   public getFeatures(): Observable<Feature[]> {
         return this.http.get<Feature[]>(this.ROADMAP_SERVICE_URL)
     }
 }
