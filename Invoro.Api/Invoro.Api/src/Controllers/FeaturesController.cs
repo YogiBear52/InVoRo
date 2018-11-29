@@ -20,7 +20,7 @@ namespace Invoro.Api.src.Controllers
             {
                 new Feature()
                 {
-                    Name  = "Connect to Mongo",
+                    Name  = "Connect to Mongo1",
                     Status = "Planned"
                 },
                 new Feature()
