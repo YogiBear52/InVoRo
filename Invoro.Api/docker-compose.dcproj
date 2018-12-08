@@ -2,13 +2,11 @@
 <Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
-    <ProjectGuid>dc638ada-a817-4661-a9bf-50d081678e7d</ProjectGuid>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <ProjectGuid>ba96c698-ffb0-4e87-9cc5-b80e7b8658d5</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://{ServerAddressIp}:{ServicePort}</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>invoro.api</DockerServiceName>
-  </PropertyGroup>
-  <PropertyGroup>
-    <DockerTargetOS>Windows</DockerTargetOS>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">
