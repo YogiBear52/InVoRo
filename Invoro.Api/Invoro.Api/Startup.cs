@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,8 @@ namespace Invoro.Api
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
+
+            services.AddAutoMapper();
 
             services.AddMvc();
         }

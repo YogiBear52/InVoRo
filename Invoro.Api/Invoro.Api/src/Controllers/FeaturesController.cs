@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Invoro.Api.src.DataModel;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -18,33 +19,27 @@ namespace Invoro.Api.src.Controllers
         private static string mongoConnectionString = "mongodb://root:example@10.0.75.1:27017";
         private MongoClient _mongoClient;
 
-        public FeaturesController()
+        private IMapper _mapper;
+
+        public FeaturesController(IMapper mapper)
         {
             _mongoClient = new MongoClient(mongoConnectionString);
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public Feature[] GetFeatures()
+        public IActionResult GetFeatures()
         {
             var db = _mongoClient.GetDatabase("Yogevs");
             var collection = db.GetCollection<Feature>("Features");
 
            Feature[] featuresFromMongo =
                 collection.Find(new BsonDocument()).ToList().ToArray();
-            //return featuresFromMongo;
-            return new Feature[]
-            {
-                new Feature()
-                {
-                    Name  = "Connect to Mongo1",
-                    Status = "Planned"
-                },
-                new Feature()
-                {
-                    Name = "Run server on docker",
-                    Status = "Not Planned Yet"
-                }
-            };
+
+            FeatureDtoResponse[] response =
+                _mapper.Map<FeatureDtoResponse[]>(featuresFromMongo);
+
+            return this.Ok(response);
         }
     }
 }
