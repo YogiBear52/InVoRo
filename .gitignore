@@ -10,3 +10,7 @@ Invoro\.Api/\.vs/Invoro\.Api/v15/
 Invoro\.Api/bin/
 
 Invoro\.Api/\.vs/
+
+Invoro\.Api/Invoro\.Api\.IntegrationTests/obj/
+
+Invoro\.Api\.UnitTests/obj/

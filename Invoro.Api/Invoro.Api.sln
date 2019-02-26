@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invoro.Api", "Invoro.Api\In
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BA96C698-FFB0-4E87-9CC5-B80E7B8658D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoro.Api.UnitTests", "..\Invoro.Api.UnitTests\Invoro.Api.UnitTests.csproj", "{8C187E4C-23A4-4DA0-AA3B-23760380F2CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoro.Api.IntegrationTests", "Invoro.Api.IntegrationTests\Invoro.Api.IntegrationTests.csproj", "{6C15F584-D36C-4407-990C-E0F9E4930A55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{299E7F9A-64D8-4C01-82C5-519F20B3BC73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +27,21 @@ Global
 		{BA96C698-FFB0-4E87-9CC5-B80E7B8658D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA96C698-FFB0-4E87-9CC5-B80E7B8658D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA96C698-FFB0-4E87-9CC5-B80E7B8658D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C187E4C-23A4-4DA0-AA3B-23760380F2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C187E4C-23A4-4DA0-AA3B-23760380F2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C187E4C-23A4-4DA0-AA3B-23760380F2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C187E4C-23A4-4DA0-AA3B-23760380F2CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C15F584-D36C-4407-990C-E0F9E4930A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C15F584-D36C-4407-990C-E0F9E4930A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C15F584-D36C-4407-990C-E0F9E4930A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C15F584-D36C-4407-990C-E0F9E4930A55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C187E4C-23A4-4DA0-AA3B-23760380F2CD} = {299E7F9A-64D8-4C01-82C5-519F20B3BC73}
+		{6C15F584-D36C-4407-990C-E0F9E4930A55} = {299E7F9A-64D8-4C01-82C5-519F20B3BC73}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85350432-DF62-49EA-A873-A019048C9DD9}
