@@ -1,5 +1,5 @@
 # InVoRo
-Influenced by Interactive Voting Roadmap (Think of a better acronym :P)
+Influence by Interactive Rodmap Voting System (Think of a better acronym :P)
 
 Any application has a Roadmap.
 Any application want to get as much as feedback from their clients.
