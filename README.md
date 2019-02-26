@@ -1,13 +1,13 @@
 # InVoRo
-Influence by Voting to Roadmap (Think of a better acronym :P)
+Influenced by Interactive Voting Roadmap (Think of a better acronym :P)
 
 Any application has a Roadmap.
-Any application want get as much as feedback from thier clients.
+Any application want to get as much as feedback from their clients.
 
 Why don't we expose our Roadmap?
-Why don't we make our clients interactivly vote for thier next most important features in our product's rodemap?
+Why don't we make our clients interactivly vote for their next most important features in our product's rodemap?
 
-This porject will pack a plug(config) and play e2e frontened-backend-db system to expose in you website.
+This porject will pack a plug and play e2e(configrable) frontened-backend-db system to expose in you website.
 Design the component as you want.
 
 
