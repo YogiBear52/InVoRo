@@ -3,7 +3,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM microsoft/dotnet:2.2-sdk-alpine AS build
+FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
 COPY Invoro.Api/Invoro.Api.csproj Invoro.Api/
 RUN dotnet restore Invoro.Api/Invoro.Api.csproj
