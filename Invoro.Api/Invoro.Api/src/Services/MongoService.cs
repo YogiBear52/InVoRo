@@ -1,15 +1,15 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.Extensions.Configuration;
+using MongoDB.Driver;
 
 namespace Invoro.Api.src.Services
 {
     public class MongoService : IMongoService
     {
-        // TODO: From settings
-        private static string mongoConnectionString = "mongodb://root:example@10.0.75.1:27017";
         private readonly MongoClient _MongoClient;
 
-        public MongoService()
+        public MongoService(IConfiguration configuration)
         {
+            string mongoConnectionString = configuration.GetConnectionString("InvoroMongo");
             _MongoClient = new MongoClient(mongoConnectionString);
         }
 

@@ -23,7 +23,7 @@ namespace Invoro.Api.src.DataModel
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty("namee")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("status")]
