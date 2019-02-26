@@ -1,43 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Invoro.Api.src.DataModel;
-using Microsoft.AspNetCore.Cors;
+using Invoro.Api.src.Services;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
-using MongoDB.Driver;
+using System.Collections.Generic;
 
 namespace Invoro.Api.src.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("AllowAnyOrigin")]
-    public class FeaturesController : ControllerBase
+    [Route("api/[controller]")] // Find a way to make it as the Default Rounting without mention it explicitly
+    public class FeaturesController : BaseController
     {
-        private static string mongoConnectionString = "mongodb://root:example@10.0.75.1:27017";
-        private MongoClient _mongoClient;
-
-        private IMapper _mapper;
-
-        public FeaturesController(IMapper mapper)
+        #region Ctor
+        public FeaturesController(IFeaturesService featuresService, IMapper mapper)
+            : base(mapper)
         {
-            _mongoClient = new MongoClient(mongoConnectionString);
-            _mapper = mapper;
+            FeaturesService = featuresService;
         }
+
+        public IFeaturesService FeaturesService { get; }
+
+        #endregion
 
         [HttpGet]
         public IActionResult GetFeatures()
         {
-            var db = _mongoClient.GetDatabase("Yogevs");
-            var collection = db.GetCollection<Feature>("Features");
-
-           Feature[] featuresFromMongo =
-                collection.Find(new BsonDocument()).ToList().ToArray();
+            IEnumerable<Feature> featuresFromMongo =
+                 FeaturesService.GetFeatures();
 
             FeatureDtoResponse[] response =
-                _mapper.Map<FeatureDtoResponse[]>(featuresFromMongo);
+                base.Mapper.Map<FeatureDtoResponse[]>(featuresFromMongo);
 
             return this.Ok(response);
         }
