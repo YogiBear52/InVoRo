@@ -14,3 +14,7 @@ Invoro\.Api/\.vs/
 Invoro\.Api/Invoro\.Api\.IntegrationTests/obj/
 
 Invoro\.Api\.UnitTests/obj/
+
+Invoro\.Api/Invoro\.Api\.IntegrationTests/bin/
+
+Invoro\.Api\.UnitTests/bin/
