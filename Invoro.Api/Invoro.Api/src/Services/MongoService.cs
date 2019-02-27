@@ -5,12 +5,13 @@ namespace Invoro.Api.src.Services
 {
     public class MongoService : IMongoService
     {
-        private readonly MongoClient _MongoClient;
+        protected readonly MongoClient _MongoClient;
 
         public MongoService(IConfiguration configuration)
         {
-            string mongoConnectionString = configuration.GetConnectionString("InvoroMongo");
-            _MongoClient = new MongoClient(mongoConnectionString);
+            MongoClientSettings settings = GetMongoClientSettings(configuration);
+
+            _MongoClient = new MongoClient(settings);
         }
 
         public IMongoCollection<TDocumnet> GetCollection<TDocumnet>(string name)
@@ -18,11 +19,23 @@ namespace Invoro.Api.src.Services
             return GetDatabase().GetCollection<TDocumnet>(name);
         }
 
-        #region Private Methods
+        #region Protected Methods
 
-        private IMongoDatabase GetDatabase()
+        protected IMongoDatabase GetDatabase()
         {
             return _MongoClient.GetDatabase("Invoro");
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private static MongoClientSettings GetMongoClientSettings(IConfiguration configuration)
+        {
+            string mongoConnectionString = configuration.GetConnectionString("InvoroMongo");
+            MongoClientSettings settings = MongoClientSettings.FromConnectionString(mongoConnectionString);
+            settings.WriteConcern = WriteConcern.Acknowledged.With(journal: true);
+            return settings;
         }
 
         #endregion

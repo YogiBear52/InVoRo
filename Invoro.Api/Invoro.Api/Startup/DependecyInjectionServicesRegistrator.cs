@@ -7,8 +7,11 @@ namespace Invoro.Api.Startup
     {
         public static void AddInvoroSpecificServices(IServiceCollection services)
         {
-            services.AddSingleton<IFeaturesService, FeaturesService>();
+            services.AddHttpContextAccessor();
+
+            services.AddScoped<IFeaturesService, FeaturesService>();
             services.AddSingleton<IMongoService, MongoService>();
+            services.AddHostedService<MongoDataSimulator>();
         }
     }
 

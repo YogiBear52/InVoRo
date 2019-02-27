@@ -1,28 +1,32 @@
 ﻿using Invoro.Api.src.DataModel;
+using Microsoft.AspNetCore.Http;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace Invoro.Api.src.Services
 {
-    public class FeaturesService : IFeaturesService
+    public class FeaturesService : BaseService, IFeaturesService
     {
-        public FeaturesService(IMongoService mongoService)
+        public FeaturesService(IMongoService mongoService, IHttpContextAccessor httpContextAccessor)
+            :base(httpContextAccessor)
         {
             Features = mongoService.GetCollection<Feature>("Features");
         }
 
         public IMongoCollection<Feature> Features { get; }
 
-        public IEnumerable<Feature> GetFeatures()
+        public async Task<IEnumerable<Feature>> GetFeatures()
         {
-            return this.Features.Find(new BsonDocument()).ToEnumerable<Feature>();
+            return 
+                await this.Features.Find<Feature>
+                        (new BsonDocument()).ToListAsync(cancellationToken: base.ServiceCancellationToken);
         }
     }
 
     public interface IFeaturesService
     {
-        IEnumerable<Feature> GetFeatures();
+        Task<IEnumerable<Feature>> GetFeatures();
     }
 }

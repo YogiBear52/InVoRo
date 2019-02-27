@@ -3,6 +3,7 @@ using Invoro.Api.src.DataModel;
 using Invoro.Api.src.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Invoro.Api.src.Controllers
 {
@@ -21,10 +22,10 @@ namespace Invoro.Api.src.Controllers
         #endregion
 
         [HttpGet]
-        public IActionResult GetFeatures()
+        public async Task<IActionResult> GetFeatures()
         {
             IEnumerable<Feature> featuresFromMongo =
-                 FeaturesService.GetFeatures();
+                 await FeaturesService.GetFeatures();
 
             FeatureDtoResponse[] response =
                 base.Mapper.Map<FeatureDtoResponse[]>(featuresFromMongo);
