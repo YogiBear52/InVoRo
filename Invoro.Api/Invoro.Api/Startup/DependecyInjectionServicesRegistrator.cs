@@ -11,7 +11,7 @@ namespace Invoro.Api.Startup
 
             services.AddScoped<IFeaturesService, FeaturesService>();
             services.AddSingleton<IMongoService, MongoService>();
-            services.AddHostedService<MongoDataSimulator>();
+            services.AddHostedService<MongoDataGenerator>();
         }
     }
 

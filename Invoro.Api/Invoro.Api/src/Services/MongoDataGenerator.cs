@@ -12,11 +12,11 @@ namespace Invoro.Api.src.Services
     /// <summary>
     /// Background service on start
     /// </summary>
-    public class MongoDataSimulator : MongoService, IHostedService
+    public class MongoDataGenerator : MongoService, IHostedService
     {
         private readonly bool _EnableDBDataGenerator;
 
-        public MongoDataSimulator(IConfiguration configuration)
+        public MongoDataGenerator(IConfiguration configuration)
             :base(configuration)
         {
             _EnableDBDataGenerator =
