@@ -12,16 +12,17 @@ namespace Invoro.Api.src.Services
         public FeaturesService(IMongoService mongoService, IHttpContextAccessor httpContextAccessor)
             :base(httpContextAccessor)
         {
-            Features = mongoService.GetCollection<Feature>("Features");
+            FeaturesCollection = mongoService.GetCollection<Feature>("Features");
         }
 
-        public IMongoCollection<Feature> Features { get; }
+        public IMongoCollection<Feature> FeaturesCollection { get; }
 
         public async Task<IEnumerable<Feature>> GetFeatures()
         {
             return 
-                await this.Features.Find<Feature>
-                        (new BsonDocument()).ToListAsync(cancellationToken: base.ServiceCancellationToken);
+                await this.FeaturesCollection
+                    .Find(FilterDefinition<Feature>.Empty)
+                    .ToListAsync(cancellationToken: base.RequestCancellationToken);
         }
     }
 

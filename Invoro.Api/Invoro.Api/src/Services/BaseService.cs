@@ -5,11 +5,11 @@ namespace Invoro.Api.src.Services
 {
     public class BaseService
     {
-        protected CancellationToken ServiceCancellationToken;
+        protected CancellationToken RequestCancellationToken;
 
         public BaseService(IHttpContextAccessor httpContextAccessor)
         {
-            this.ServiceCancellationToken = httpContextAccessor.HttpContext.RequestAborted;
+            this.RequestCancellationToken = httpContextAccessor.HttpContext.RequestAborted;
         }
     }
 }

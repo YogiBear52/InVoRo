@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Invoro.Api.src.Controllers
 {
     [ApiController]
+    [Route("api/[controller]")]
     //[EnableCors("AllowAnyOrigin")] Not sure if needed. Check when Client is ready
     public abstract class BaseController : ControllerBase
     {

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Invoro.Api.src.Controllers
 {
-    [Route("api/[controller]")] // Find a way to make it as the Default Rounting without mention it explicitly
     public class FeaturesController : BaseController
     {
         #region Ctor
@@ -24,8 +23,7 @@ namespace Invoro.Api.src.Controllers
         [HttpGet]
         public async Task<IActionResult> GetFeatures()
         {
-            IEnumerable<Feature> featuresFromMongo =
-                 await FeaturesService.GetFeatures();
+            IEnumerable<Feature> featuresFromMongo = await FeaturesService.GetFeatures();
 
             FeatureDtoResponse[] response =
                 base.Mapper.Map<FeatureDtoResponse[]>(featuresFromMongo);
