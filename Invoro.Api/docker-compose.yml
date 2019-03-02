@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: Invoro.Api/Dockerfile
+    links: 
+      - mongo
 
   mongo:
     image: mongo
@@ -24,3 +26,11 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
+  mongo_seed:
+    image: ${DOCKER_REGISTRY-}mongo-seed
+    build:
+      context: ./mongo-seed
+      dockerfile: Dockerfile
+    links:
+      - mongo

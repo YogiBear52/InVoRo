@@ -1,0 +1,1 @@
+[{"_id":{ "$oid": "5c7af569b3d0d3009c824c32" },"name":"Asp.net Core service best practices","status":"Done"},{"_id":{ "$oid": "5c7af569b3d0d3009c824c33" },"name":"Server - First request","status":"In Progress"},{"_id":{ "$oid": "5c7af569b3d0d3009c824c34" },"name":"Client side - replace to react","status":"Planned"}]
