@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Invoro.Api.src.Controllers
 {
     [ApiController]
+    [EnableCors]
     [Route("api/[controller]")]
-    //[EnableCors("AllowAnyOrigin")] Not sure if needed. Check when Client is ready
     public abstract class BaseController : ControllerBase
     {
         public BaseController(IMapper mapper)
