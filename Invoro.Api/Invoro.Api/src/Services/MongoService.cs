@@ -6,30 +6,26 @@ namespace Invoro.Api.src.Services
 {
     public class MongoService : IMongoService
     {
-        protected readonly MongoClient _MongoClient;
+        private static readonly string MONGO_CONNECTION_STRING_CONFIG_KEY = "MongoConnectionString";
+
         private readonly string _DbName;
+
+        protected readonly MongoClient _MongoClient;
 
         public MongoService(IConfiguration configuration)
         {
-            string mongoConnectionString = configuration.GetConnectionString("InvoroMongo");
+            string mongoConnectionString = configuration.GetConnectionString(MONGO_CONNECTION_STRING_CONFIG_KEY);
+
+            if (string.IsNullOrWhiteSpace(mongoConnectionString))
+            {
+                throw new ArgumentException($"Mongo connection string '{MONGO_CONNECTION_STRING_CONFIG_KEY}' is not set in configuration");
+            }
 
             MongoClientSettings settings = GetMongoClientSettings(mongoConnectionString);
             
             _MongoClient = new MongoClient(settings);
 
             _DbName = GetDataBaseName(mongoConnectionString);
-        }
-
-        private string GetDataBaseName(string mongoConnectionString)
-        {
-            string databaseName = MongoUrl.Create(mongoConnectionString).DatabaseName;
-
-            if (string.IsNullOrWhiteSpace(databaseName))
-            {
-                throw new ArgumentException("Mongo connection string doesn't contain DatabaseName");
-            }
-
-            return databaseName;
         }
 
         public IMongoCollection<TDocumnet> GetCollection<TDocumnet>(string name)
@@ -47,6 +43,17 @@ namespace Invoro.Api.src.Services
         #endregion
 
         #region Private Methods
+        private string GetDataBaseName(string mongoConnectionString)
+        {
+            string databaseName = MongoUrl.Create(mongoConnectionString).DatabaseName;
+
+            if (string.IsNullOrWhiteSpace(databaseName))
+            {
+                throw new ArgumentException("Mongo connection string doesn't contain DatabaseName");
+            }
+
+            return databaseName;
+        }
 
         private static MongoClientSettings GetMongoClientSettings(string mongoConnectionString)
         {
