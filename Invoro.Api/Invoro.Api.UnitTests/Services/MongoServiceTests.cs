@@ -18,6 +18,8 @@ namespace Invoro.Api.UnitTests.Services
 
         #region Tests
 
+        #region Connection Strings
+
         [TestMethod]
         public void ConnectionString_Valid_ShouldWork()
         {
@@ -75,6 +77,8 @@ namespace Invoro.Api.UnitTests.Services
                 .Throw<ArgumentException>()
                 .WithMessage("Mongo connection string doesn't contain DatabaseName");
         }
+
+        #endregion
 
         #endregion
 
