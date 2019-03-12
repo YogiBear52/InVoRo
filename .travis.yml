@@ -12,3 +12,7 @@ matrix:
       solution: Invoro.Api.sln
       before_install: cd Invoro.Api
       sudo: required
+      script:
+          - dotnet restore
+          - dotnet build
+          - dotnet test
