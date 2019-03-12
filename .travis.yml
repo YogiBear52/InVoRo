@@ -1,4 +1,12 @@
-language: node_js
-node_js:
-  - "11"
-before_install: cd Invoro.WebApp/Invoro/invoro
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "11"
+      before_install: cd Invoro.WebApp/Invoro/invoro
+
+    - language: csharp
+      mono: none
+      dotnet: 2.2.100
+      solution: Invoro.Api.sln
+      before_install: cd Invoro.Api
