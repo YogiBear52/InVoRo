@@ -1,4 +1,7 @@
-# InVoRo
+
+# InVoRo &middot; [![Build Status](https://travis-ci.com/YogiBear52/InVoRo.svg?branch=master)](https://travis-ci.com/YogiBear52/InVoRo)
+
+
 Influence by Interactive Rodmap Voting System (Think of a better acronym :P)
 
 Any application has a Roadmap.
