@@ -15,3 +15,9 @@ Tech notes:
 1. The server is using MongoDb. If you want to integrate with other Databases, you have to implement your own DB service provider.
 2. The client component will be exposed as a WebComponent component.
 3. The server will run on a docker container.
+
+
+Roadmap:
+1. Use Invoro as out Roadmap :P
+2. Release 1 - Show Features, Enalbe voiting system
+3. Release 2 - Privilliges - Be able to edit content 
