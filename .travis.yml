@@ -1,4 +1,4 @@
 language: node_js
 node_js:
-  - "lts"
+  - "11"
 before_install: cd Invoro.WebApp/Invoro/invoro
