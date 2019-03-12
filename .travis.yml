@@ -13,6 +13,6 @@ matrix:
       before_install: cd Invoro.Api
       sudo: required
       script:
-          - dotnet restore
-          - dotnet build
-          - dotnet test
+          - dotnet restore Invoro.Api.sln
+          - dotnet build Invoro.Api.sln
+          - dotnet test Invoro.Api.sln
