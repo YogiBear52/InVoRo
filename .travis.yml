@@ -1,11 +1,8 @@
-matrix:
+jobs:
   include:
-    - language: node_js
-      node_js:
-        - "11"
-      before_install: cd Invoro.WebApp/Invoro/invoro
-
-    - language: csharp
+    - stage: test
+      name: "Server test"
+      language: csharp
       mono: none
       dist: xenial
       dotnet: 2.2
@@ -16,3 +13,30 @@ matrix:
           - dotnet restore Invoro.Api.sln
           - dotnet build Invoro.Api.sln
           - dotnet test Invoro.Api.sln
+    - stage: deploy
+      name: "Docker Deploy as integration"
+      dist: xenial
+      before_script: cd Invoro.Api
+      script:
+          - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          - docker build -t invoro-api-stagging -f ./Invoro.Api/Dockerfile .
+          - docker images
+          - docker tag invoro-api-stagging $DOCKER_USERNAME/invoro-api-stagging
+          - docker push $DOCKER_USERNAME/invoro-api-stagging
+    - stage: deploy
+      name: "Docker Deploy to as production"
+      if: tag IS present 
+      dist: xenial
+      before_script: cd Invoro.Api
+      script:
+          - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          - docker build -t invoro-api -f ./Invoro.Api/Dockerfile .
+          - docker images
+          - docker tag invoro-api $DOCKER_USERNAME/invoro-api:$TRAVIS_TAG
+          - docker push $DOCKER_USERNAME/invoro-api:$TRAVIS_TAG
+    - stage: clienttest
+      name: "web app test"
+      language: node_js
+      node_js:
+        - "11"
+      before_install: cd Invoro.WebApp/Invoro/invoro
