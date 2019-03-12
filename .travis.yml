@@ -1,1 +1,18 @@
-language: node_js
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "11"
+      before_install: cd Invoro.WebApp/Invoro/invoro
+
+    - language: csharp
+      mono: none
+      dist: xenial
+      dotnet: 2.2
+      solution: Invoro.Api.sln
+      before_install: cd Invoro.Api
+      sudo: required
+      script:
+          - dotnet restore Invoro.Api.sln
+          - dotnet build Invoro.Api.sln
+          - dotnet test Invoro.Api.sln
