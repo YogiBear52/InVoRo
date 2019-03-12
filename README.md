@@ -19,5 +19,5 @@ Tech notes:
 
 Roadmap:
 1. Use Invoro as out Roadmap :P
-2. Release 1 - Show Features, Enalbe voiting system
+2. Release 1 - Show Features, Enable Voting system
 3. Release 2 - Privilliges - Be able to edit content 
