@@ -16,11 +16,9 @@ matrix:
           - dotnet restore Invoro.Api.sln
           - dotnet build Invoro.Api.sln
           - dotnet test Invoro.Api.sln
-
-dist: trusty
-
 jobs:
   include:
+      dist: trusty
     - stage: build docker image
       script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
