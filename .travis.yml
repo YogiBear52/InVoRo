@@ -17,11 +17,9 @@ matrix:
           - dotnet build Invoro.Api.sln
           - dotnet test Invoro.Api.sln
       dist: trusty
-    - stage: build docker image
       script:
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker build -t invoro-api -f .\Invoro.Api\Dockerfile .
-      - docker images
-      - docker tag invoro-api $DOCKER_USERNAME/invoro-api
-    - stage: publish docker image
-      - docker push $DOCKER_USERNAME/invoro-api
+          - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          - docker build -t invoro-api -f .\Invoro.Api\Dockerfile .
+          - docker images
+          - docker tag invoro-api $DOCKER_USERNAME/invoro-api
+          - docker push $DOCKER_USERNAME/invoro-api
