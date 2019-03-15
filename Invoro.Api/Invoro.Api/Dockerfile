@@ -9,10 +9,10 @@ COPY Invoro.Api/Invoro.Api.csproj Invoro.Api/
 RUN dotnet restore Invoro.Api/Invoro.Api.csproj
 COPY . .
 WORKDIR /src/Invoro.Api
-RUN dotnet build Invoro.Api.csproj -c Release -o /app
+RUN dotnet build Invoro.Api.csproj -c Release --no-restore -o /app
 
 FROM build AS publish
-RUN dotnet publish Invoro.Api.csproj -c Release -o /app
+RUN dotnet publish Invoro.Api.csproj -c Release --no-restore -o /app
 
 FROM base AS final
 WORKDIR /app
