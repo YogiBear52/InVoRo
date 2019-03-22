@@ -18,7 +18,7 @@ export default class SimpleTable extends React.Component<SimpleTableProps, {}> {
               <TableCell align="right">NOT PLANNED</TableCell>
               <TableCell align="right">PLANNED</TableCell>
               <TableCell align="right">IN PROGRESS</TableCell>
-              <TableCell align="right">READY SOOM</TableCell>
+              <TableCell align="right">READY SOON</TableCell>
               <TableCell align="right">RELEASED</TableCell>
             </TableRow>
           </TableHead>
