@@ -1,4 +1,4 @@
-export class RowDataModel {
+export default class RowDataModel {
     
     id : number
     featureName : string

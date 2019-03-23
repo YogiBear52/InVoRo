@@ -1,5 +1,5 @@
-import { RowDataModel } from './RowDataModel';
-import SimpleTable from './SimpleTable';
+import RowDataModel from './lib/RowDataModel';
+import SimpleTable from './lib/SimpleTable';
 import React from 'react';
 
 let id: number = 0;

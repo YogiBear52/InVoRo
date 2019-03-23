@@ -1,7 +1,7 @@
 import React from "react";
 import { Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
 import Status from "./Status";
-import { RowDataModel } from "./RowDataModel";
+import RowDataModel from "./RowDataModel";
 
 interface SimpleTableProps {
   rowsData: RowDataModel[]

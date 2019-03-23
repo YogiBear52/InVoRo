@@ -1,4 +1,4 @@
-import { Feature } from "../dataModel/Feature";
+import Feature from "../dataModel/Feature";
 
 export class FeaturesApi {
 
