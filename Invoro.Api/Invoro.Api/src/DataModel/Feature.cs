@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
+using Invoro.Api.src.DataModel.MongoCustomeSerializers;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
+using System;
 
 namespace Invoro.Api.src.DataModel
 {
@@ -15,7 +18,8 @@ namespace Invoro.Api.src.DataModel
         public string Name { get; set; }
 
         [BsonElement("status")]
-        public string Status { get; set; }
+        [BsonSerializer(typeof(StatusBsonSeriazlier))]
+        public Status Status { get; set; }
     }
 
     public class FeatureDtoResponse
@@ -30,13 +34,13 @@ namespace Invoro.Api.src.DataModel
         public string Status { get; set; }
     }
 
-
     public class FeatureProfileMapping : Profile
     {
         public FeatureProfileMapping()
         {
-            CreateMap<Feature, FeatureDtoResponse>().
-                ForMember(dest => dest.Id, source => source.MapFrom((_) => _.Id.ToString()));
+            CreateMap<Feature, FeatureDtoResponse>()
+                .ForMember(dest => dest.Id, source => source.MapFrom((_) => _.Id.ToString()))
+                .ForMember(dest => dest.Status, source => source.MapFrom(_ => Enum.GetName(typeof(Status), _.Status)));
         }
     }
 }

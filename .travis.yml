@@ -40,3 +40,10 @@ jobs:
       node_js:
         - "11"
       before_install: cd Invoro.WebApp/Invoro/invoro
+      
+notifications:
+  email:
+    recipients:
+      - miz.yogev@gmail.com
+    on_success: change
+    on_failure: always
