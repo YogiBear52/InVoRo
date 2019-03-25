@@ -1,13 +1,23 @@
 import React from "react";
 import { Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
-import Status from "./Status";
-import RowDataModel from "./RowDataModel";
+import StatusComponent from "./StatusComponent";
+import Status from "./dataModel/Status";
+import Feature from "./dataModel/Feature";
 
 interface SimpleTableProps {
-  rowsData: RowDataModel[]
+  features: Feature[]
 }
 
 export default class SimpleTable extends React.Component<SimpleTableProps, {}> {
+  private getTableCell(tableCellStatus: Status,feature: Feature) {
+    if(tableCellStatus === feature.status){
+      return <TableCell align="right"><StatusComponent status={tableCellStatus} /></TableCell> 
+    }
+    else{
+      return <TableCell align="right"></TableCell>
+    }
+  }
+
   render() {
     return (
       <Paper>
@@ -23,16 +33,16 @@ export default class SimpleTable extends React.Component<SimpleTableProps, {}> {
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.props.rowsData.map(row => (
-              <TableRow key={row.id}>
+            {this.props.features.map(feature => (
+              <TableRow key={feature.id}>
                 <TableCell component="th" scope="row">
-                  {row.featureName}
+                  {feature.name}
                 </TableCell>
-                <TableCell align="right"><Status label={row.col1} /></TableCell>
-                <TableCell align="right"><Status label={row.col2} /></TableCell>
-                <TableCell align="right"><Status label={row.col3} /></TableCell>
-                <TableCell align="right"><Status label={row.col4} /></TableCell>
-                <TableCell align="right"><Status label={row.col5} /></TableCell>
+                {this.getTableCell(Status.NotPlanned,feature)}
+                {this.getTableCell(Status.Planned,feature)}
+                {this.getTableCell(Status.InProgress,feature)}
+                {this.getTableCell(Status.ReadySoon,feature)}
+                {this.getTableCell(Status.Released,feature)}
               </TableRow>
             ))}
           </TableBody>

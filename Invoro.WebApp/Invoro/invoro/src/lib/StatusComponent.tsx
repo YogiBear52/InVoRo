@@ -3,9 +3,10 @@ import Chip from '@material-ui/core/Chip';
 import withStyles, { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { createStyles } from '@material-ui/core';
 import { yellow, red, green, orange, lime } from '@material-ui/core/colors';
+import Status, { StatusToDisplayConverter } from './dataModel/Status';
 
 interface StatusProps {
-  label: string,
+  status: Status,
   classes: {
     notPlannedStatus: string,
     plannedStatus: string,
@@ -33,31 +34,35 @@ const chipStyle = createStyles({
   }
 });
 
-class Status extends React.Component<StatusProps, {}> {
-  private getStyle(label: string): string {
-    switch (label) {
-      case ("NOT PLANNED"):
+class StatusComponent extends React.Component<StatusProps, {}> {
+  private getStyle(status: Status): string {
+    switch (status) {
+      case (Status.NotPlanned):
         return this.props.classes.notPlannedStatus;
-      case ("PLANNED"):
+      case (Status.Planned):
         return this.props.classes.plannedStatus;
-      case ("IN PROGRESS"):
+      case (Status.InProgress):
         return this.props.classes.inProgressStatus;
-      case ("READY SOON"):
+      case (Status.ReadySoon):
         return this.props.classes.readySoonStatus;
-      case ("RELEASED"):
+      case (Status.Released):
         return this.props.classes.releasedStatus;
     }
 
     throw new Error("An unknown status");
   }
 
+  private getLabel(status: Status): string {
+    return StatusToDisplayConverter.getDisplayName(status);
+  }
+
   render() {
     return (
       <div>
-        {this.props.label && <Chip className={this.getStyle(this.props.label)} label={this.props.label} variant="outlined" />}
+        <Chip className={this.getStyle(this.props.status)} label={this.getLabel(this.props.status)} variant="outlined" />
       </div>
     );
   }
 }
 
-export default withStyles(chipStyle)(Status)
+export default withStyles(chipStyle)(StatusComponent)
