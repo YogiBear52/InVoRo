@@ -40,7 +40,12 @@ jobs:
       node_js:
         - "11"
       before_install: cd Invoro.WebApp/Invoro/invoro
-      
+
+#Only pull request      
+branches:
+  except:
+  - master
+  
 notifications:
   email:
     recipients:
