@@ -1,6 +1,6 @@
 import Feature from "../dataModel/Feature";
 
-export class FeaturesApi {
+export default class FeaturesApi {
 
   private FEATURES_API: string = 'https://localhost/api/Features';
 

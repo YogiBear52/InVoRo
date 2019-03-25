@@ -1,31 +1,34 @@
-import RowDataModel from './lib/RowDataModel';
 import SimpleTable from './lib/SimpleTable';
 import React from 'react';
+import Feature from './lib/dataModel/Feature';
+import FeaturesApi from './lib/services/FeaturesApi';
 
-let id: number = 0;
-function createData(featureName: string, isNotPlanned: boolean, isPlanned: boolean, isInProgress: boolean, isReadySoon: boolean, isReleased: boolean): RowDataModel {
-  id += 1;
-  return new RowDataModel(id,
-    featureName,
-    isNotPlanned ? "NOT PLANNED" : "",
-    isPlanned ? "PLANNED" : "",
-    isInProgress ? "IN PROGRESS" : "",
-    isReadySoon ? "READY SOON" : "",
-    isReleased ? "RELEASED" : "");
+interface IAppSate {
+  features: Feature[] | null;
 }
-
 export default class App extends React.Component {
-  rowsData: RowDataModel[] = [
-    createData('Feture 1', true, false, false, false, false),
-    createData('Feture 2', false, true, false, false, false),
-    createData('Feture 3', false, false, true, false, false),
-    createData('Feture 4', false, false, false, true, false),
-    createData('Feture 5', false, false, false, false, true)
-  ];
+
+  private featuresApi: FeaturesApi;
+
+   constructor(props: any) {
+    super(props);
+    this.featuresApi = new FeaturesApi();
+   }
+
+  public async componentDidMount() {
+     // TODO: Handle Failure
+     let featuresResult: Feature[] = await this.featuresApi.getFeatures();
+     this.setState({features:featuresResult});
+  }
+
+  state: IAppSate = {features: null}
 
   render() {
-    return (
-      <SimpleTable rowsData = {this.rowsData} />
-    );
-  }
+    if (this.state.features !== null){
+    return <SimpleTable features = {this.state.features} />;
+      }
+    else {
+        return <div>Loading..</div>;
+      }
+    }
 }
