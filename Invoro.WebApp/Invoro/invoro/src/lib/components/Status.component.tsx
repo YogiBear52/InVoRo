@@ -3,7 +3,8 @@ import Chip from '@material-ui/core/Chip';
 import withStyles, { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { createStyles } from '@material-ui/core';
 import { yellow, red, green, orange, lime } from '@material-ui/core/colors';
-import Status, { StatusToDisplayConverter } from './dataModel/Status';
+import Status from '../dataModel/Status';
+import StatusToDisplayConverter from "../services/StatusToDisplayConverter.service";
 
 interface StatusProps {
   status: Status,
