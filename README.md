@@ -2,7 +2,7 @@
 # InVoRo &middot; [![Build Status](https://travis-ci.com/YogiBear52/InVoRo.svg?branch=master)](https://travis-ci.com/YogiBear52/InVoRo)
 
 
-## Interactive Rodmap Voting System
+## Interactive Roadmap Voting System
 
 ### InVoRo
 - In - Interactive
@@ -14,11 +14,11 @@
 - Client feedback is NECESSARY and as early as possible.
 
 #### Got the problem?
-<b>Why</b> don't we <b>expose</b> the Roadmap to our clients?
+<b>Why</b> don't we <b>expose</b> the <b>Roadmap</b> to our clients?
 
-<b>Why</b> don't we make our clients <b>interactivly vote </b> for their next most important features in our product's rodemap?
+<b>Why</b> don't we make our clients <b>interactivly vote</b> for their next most important features in our product's roadmap?
 
-InVoRo is a <b>Win-Win</b> soultion.
+InVoRo is a <b>Win-Win</b> solution.
 
 
 ## What does the project includes?
@@ -26,7 +26,7 @@ This porject will pack a plug and play e2e frontened-backend-db system.
 
 Expose Invoro component in your website, run the DB and the service and you are ready to go.
 
-Of couse, you can design the component as you want.
+Of course, you can design the component as you want.
 
 
 ## Tech notes:
