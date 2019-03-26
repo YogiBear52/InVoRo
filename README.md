@@ -2,25 +2,41 @@
 # InVoRo &middot; [![Build Status](https://travis-ci.com/YogiBear52/InVoRo.svg?branch=master)](https://travis-ci.com/YogiBear52/InVoRo)
 
 
-Influence by Interactive Rodmap Voting System (Think of a better acronym :P)
+## Interactive Rodmap Voting System
 
-Any application has a Roadmap.
-Any application want to get as much as feedback from their clients.
+### InVoRo
+- In - Interactive
+- Vo - Voting
+- Ro - Roadmap
 
-Why don't we expose our Roadmap?
-Why don't we make our clients interactivly vote for their next most important features in our product's rodemap?
+#### Invoro is based on two main assumptions:
+- Any application has and needs a Roadmap.
+- Client feedback is NECESSARY and as early as possible.
 
-This porject will pack a plug and play e2e(configrable) frontened-backend-db system to expose in you website.
-Design the component as you want.
+#### Got the problem?
+<b>Why</b> don't we <b>expose</b> the Roadmap to our clients?
+
+<b>Why</b> don't we make our clients <b>interactivly vote </b> for their next most important features in our product's rodemap?
+
+InVoRo is a <b>Win-Win</b> soultion.
 
 
-Tech notes:
-1. The server is using MongoDb. If you want to integrate with other Databases, you have to implement your own DB service provider.
-2. The client component will be exposed as a WebComponent component.
-3. The server will run on a docker container.
+## What does the project includes?
+This porject will pack a plug and play e2e frontened-backend-db system.
+
+Expose Invoro component in your website, run the DB and the service and you are ready to go.
+
+Of couse, you can design the component as you want.
 
 
-Roadmap:
-1. Use Invoro as out Roadmap :P
-2. Release 1 - Show Features, Enable Voting system
-3. Release 2 - Privilliges - Be able to edit content 
+## Tech notes:
+1. The backend service is using by default MongoDB. You can implement your own DB service provider (Not yet developed).
+2. The client component will be exposed as a React component.
+3. The backend service will run on a docker container.
+
+
+## Roadmap:
+1. Release 1 - Show Features, Enable Voting system, Simple mongo creating script.
+2. Release 2 - Make the service and the client component more customizable.
+3. Release 3 - Privilliges - to enable content modification with the UI.
+
