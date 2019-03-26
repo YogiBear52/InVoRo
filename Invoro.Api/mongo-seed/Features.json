@@ -1,1 +1,30 @@
-[{"_id":{ "$oid": "5c7af569b3d0d3009c824c32" },"name":"Asp.net Core service best practices","status":"Released"},{"_id":{ "$oid": "5c7af569b3d0d3009c824c33" },"name":"Server - First request","status":"InProgress"},{"_id":{ "$oid": "5c7af569b3d0d3009c824c34" },"name":"Client side - replace to react","status":"Planned"}]
+[
+  {
+    "name": "Asp.net Core service best practices",
+    "status": "Released"
+  },
+  {
+    "name": "Server - First request",
+    "status": "Released"
+  },
+  {
+    "name": "Client side - replace to react",
+    "status": "Released"
+  },
+  {
+    "name": "Voting",
+    "status": "Planned"
+  },
+  {
+    "name": "Publish client as library to npm",
+    "status": "NotPlanned"
+  },
+  {
+    "name": "I am a long long long long long long long long long long long long long long long long long feature name - Test me",
+    "status": "InProgress"
+  },
+  {
+    "name": "First Client component tests",
+    "status": "ReadySoon"
+  }
+]

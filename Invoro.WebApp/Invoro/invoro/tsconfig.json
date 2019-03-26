@@ -3,10 +3,8 @@
     "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
-    "declaration": false,
     "jsx": "preserve",
     "sourceMap": true,
-    "noLib": false,
     "isolatedModules": true,
     "lib": [
       "dom",
@@ -19,6 +17,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "noEmit": true,
+    "declaration": false,
+    "noLib": false,
     "skipLibCheck": true,
     "allowJs": true
   },

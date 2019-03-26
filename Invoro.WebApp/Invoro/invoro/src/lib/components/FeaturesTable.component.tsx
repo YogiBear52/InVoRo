@@ -1,14 +1,14 @@
 import React from "react";
 import { Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
-import StatusComponent from "./StatusComponent";
-import Status from "./dataModel/Status";
-import Feature from "./dataModel/Feature";
+import StatusComponent from "./Status.component";
+import Status from "../dataModel/Status";
+import Feature from "../dataModel/Feature";
 
-interface SimpleTableProps {
+interface FeaturesTableProps {
   features: Feature[]
 }
 
-export default class SimpleTable extends React.Component<SimpleTableProps, {}> {
+export default class FeaturesTableComponent extends React.Component<FeaturesTableProps, {}> {
   private getTableCell(tableCellStatus: Status,feature: Feature) {
     if(tableCellStatus === feature.status){
       return <TableCell align="right"><StatusComponent status={tableCellStatus} /></TableCell> 
