@@ -13,6 +13,7 @@ namespace Invoro.Api.Startup.Extensions
             {
                 options.Providers.Add<BrotliCompressionProvider>();
                 options.Providers.Add<GzipCompressionProvider>();
+                options.EnableForHttps = true;
             });
 
             services.Configure<BrotliCompressionProviderOptions>(options =>
