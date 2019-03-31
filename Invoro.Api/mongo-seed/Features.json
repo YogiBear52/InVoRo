@@ -1,30 +1,36 @@
 [
   {
     "name": "Asp.net Core service best practices",
-    "status": "Released"
+    "status": "Released",
+    "link": "http://localhost:8081/db/Invoro/Features"
   },
   {
     "name": "Server - First request",
-    "status": "Released"
+    "status": "Released",
+    "link": "http://localhost:8081/db/Invoro/Features"
   },
   {
     "name": "Client side - replace to react",
-    "status": "Released"
+    "status": "Released",
+    "link": "http://localhost:8081/db/Invoro/Features"
   },
   {
     "name": "Voting",
-    "status": "Planned"
+    "status": "Planned",
+    "link": "https://jenkins.io/projects/blueocean/roadmap/"
   },
   {
     "name": "Publish client as library to npm",
-    "status": "NotPlanned"
+    "status": "NotPlanned",
+    "link": "https://jenkins.io/projects/blueocean/roadmap/"
   },
   {
-    "name": "I am a long long long long long long long long long long long long long long long long long feature name - Test me",
-    "status": "InProgress"
+    "name": "II am a long long long long long long long long long long long long long long long long long feature name - Test me",
+    "status": "InProgress",
+    "link": "https://jenkins.io/projects/blueocean/roadmap/"
   },
   {
-    "name": "First Client component tests",
+    "name": "Feature WITHOUT a LINK",
     "status": "ReadySoon"
   }
 ]

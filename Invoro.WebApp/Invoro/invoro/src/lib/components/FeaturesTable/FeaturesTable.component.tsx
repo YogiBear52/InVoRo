@@ -1,8 +1,8 @@
 import React from "react";
 import { Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
-import StatusComponent from "./Status.component";
-import Status from "../dataModel/Status";
-import Feature from "../dataModel/Feature";
+import StatusComponent from "../Status.component";
+import Status from "../../dataModel/Status";
+import Feature from "../../dataModel/Feature";
 
 interface FeaturesTableProps {
   features: Feature[]
@@ -34,9 +34,11 @@ export default class FeaturesTableComponent extends React.Component<FeaturesTabl
           </TableHead>
           <TableBody>
             {this.props.features.map(feature => (
-              <TableRow key={feature.id}>
+              <TableRow key={feature.id} > 
                 <TableCell component="th" scope="row">
-                  {feature.name}
+                  <a href={feature.link}>
+                    {feature.name}
+                  </a>
                 </TableCell>
                 {this.getTableCell(Status.NotPlanned,feature)}
                 {this.getTableCell(Status.Planned,feature)}
