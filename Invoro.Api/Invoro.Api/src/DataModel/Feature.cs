@@ -20,6 +20,9 @@ namespace Invoro.Api.src.DataModel
         [BsonElement("status")]
         [BsonSerializer(typeof(StatusBsonSeriazlier))]
         public Status Status { get; set; }
+
+        [BsonElement("link")]
+        public string Link { get; set; }
     }
 
     public class FeatureDtoResponse
@@ -32,6 +35,9 @@ namespace Invoro.Api.src.DataModel
 
         [JsonProperty("status")]
         public string Status { get; set; }
+
+        [JsonProperty("link")]
+        public string Link { get; set; }
     }
 
     public class FeatureProfileMapping : Profile

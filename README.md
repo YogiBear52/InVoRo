@@ -31,8 +31,9 @@ Of course, you can design the component as you want.
 
 ## Tech notes:
 1. The backend service is using by default MongoDB. You can implement your own DB service provider (Not yet developed).
-2. The client component will be exposed as a React component.
-3. The backend service will run on a docker container.
+	- The service doesn't have a built-in authentication mechanism. If you want, put the service behind an authentication service such as HTTPD / Nginx.
+2. The backend service will be published as docker image based on a linux distribution.
+3. The client is a React component which will be published as a npm package. 
 
 
 ## Roadmap:

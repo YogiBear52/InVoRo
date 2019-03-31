@@ -1,7 +1,7 @@
 import React from 'react';
 import Feature from '../../dataModel/Feature'
 import FeaturesApi from '../../services/FeaturesApi.service';
-import FeaturesTableComponent from '../FeaturesTable.component';
+import FeaturesTableComponent from '../FeaturesTable/FeaturesTable.component'
 
 interface IInvoroState{
     features: Feature[] | null;
