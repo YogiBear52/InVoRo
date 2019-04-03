@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Invoro.Api.src.Api;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 
@@ -18,7 +18,7 @@ namespace Invoro.Api.src.Services
 
             if (string.IsNullOrWhiteSpace(mongoConnectionString))
             {
-                throw new ArgumentException($"Mongo connection string '{MONGO_CONNECTION_STRING_CONFIG_KEY}' is not set in configuration");
+                throw ExceptionsApi.MongoConnectionStringIsNotConfiguredException(MONGO_CONNECTION_STRING_CONFIG_KEY);
             }
 
             MongoClientSettings settings = GetMongoClientSettings(mongoConnectionString);
@@ -49,7 +49,7 @@ namespace Invoro.Api.src.Services
 
             if (string.IsNullOrWhiteSpace(databaseName))
             {
-                throw new ArgumentException("Mongo connection string doesn't contain DatabaseName");
+                throw ExceptionsApi.MongoConnectionStringDoesntContainDataBaseNameException();
             }
 
             return databaseName;

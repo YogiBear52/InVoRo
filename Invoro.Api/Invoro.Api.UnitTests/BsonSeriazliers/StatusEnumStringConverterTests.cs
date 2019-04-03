@@ -1,10 +1,9 @@
 ﻿using FluentAssertions;
+using Invoro.Api.src.Api;
 using Invoro.Api.src.DataModel;
 using Invoro.Api.src.DataModel.MongoCustomeSerializers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Invoro.Api.UnitTests.BsonSeriazliers
 {
@@ -42,7 +41,8 @@ namespace Invoro.Api.UnitTests.BsonSeriazliers
                 StatusEnumStringConverter.ConvertStringToStatus(string.Empty);
 
             act.Should()
-                .Throw<ArgumentNullException>();
+                .Throw<ArgumentNullException>()
+                .WithMessage(ExceptionsApi.StatusStringCannotBeEmptyException().Message);
         }
 
         [TestMethod]
@@ -54,9 +54,7 @@ namespace Invoro.Api.UnitTests.BsonSeriazliers
 
             act.Should()
                 .Throw<ArgumentException>()
-                .WithMessage(
-                    $"Cannot convert Status field with the string value of '{NOT_EXISTING_STATUS_VALUE}'" +
-                    $" because it doesn't match one of the options: '{String.Join(", ", Enum.GetNames(typeof(Status)))}'");
+                .WithMessage(ExceptionsApi.FailedToParseStatusFromStringToObjectException(NOT_EXISTING_STATUS_VALUE).Message);
         }
 
         #endregion

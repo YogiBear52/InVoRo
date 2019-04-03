@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Invoro.Api.src.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,15 +12,13 @@ namespace Invoro.Api.src.DataModel.MongoCustomeSerializers
         {
             if (string.IsNullOrWhiteSpace(statusString))
             {
-                throw new ArgumentNullException("String cannot be null or empty", nameof(statusString));
+                throw ExceptionsApi.StatusStringCannotBeEmptyException();
             }
 
             Status status;
             if (!Enum.TryParse<Status>(statusString, out status))
             {
-                throw new ArgumentException(
-                    $"Cannot convert Status field with the string value of '{statusString}'" +
-                    $" because it doesn't match one of the options: '{String.Join(", ", Enum.GetNames(typeof(Status)))}'");
+                throw ExceptionsApi.FailedToParseStatusFromStringToObjectException(statusString);
             }
 
             return status;
