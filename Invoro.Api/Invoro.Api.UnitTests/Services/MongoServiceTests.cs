@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 using FluentAssertions;
+using Invoro.Api.src.Api;
 
 namespace Invoro.Api.UnitTests.Services
 {
@@ -44,7 +45,7 @@ namespace Invoro.Api.UnitTests.Services
             // Assert
             act.Should()
                 .Throw<ArgumentException>()
-                .WithMessage($"Mongo connection string '{MONGO_CONNECTION_STRING_CONFIG_KEY}' is not set in configuration");
+                .WithMessage(ExceptionsApi.MongoConnectionStringIsNotConfiguredException(MONGO_CONNECTION_STRING_CONFIG_KEY).Message);
         }
 
         [TestMethod]
@@ -59,7 +60,7 @@ namespace Invoro.Api.UnitTests.Services
             // Assert
             act.Should()
                 .Throw<ArgumentException>()
-                .WithMessage($"Mongo connection string '{MONGO_CONNECTION_STRING_CONFIG_KEY}' is not set in configuration");
+                .WithMessage(ExceptionsApi.MongoConnectionStringIsNotConfiguredException(MONGO_CONNECTION_STRING_CONFIG_KEY).Message);
         }
 
         [TestMethod]
@@ -75,7 +76,7 @@ namespace Invoro.Api.UnitTests.Services
             // Assert
             act.Should()
                 .Throw<ArgumentException>()
-                .WithMessage("Mongo connection string doesn't contain DatabaseName");
+                .WithMessage(ExceptionsApi.MongoConnectionStringDoesntContainDataBaseNameException().Message);
         }
 
         #endregion

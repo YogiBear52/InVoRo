@@ -1,15 +1,17 @@
-﻿using Invoro.Api.src.Services;
+﻿using Invoro.Api.src.Authentication;
+using Invoro.Api.src.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Invoro.Api.Startup
 {
     public class DependecyInjectionServicesRegistrator
     {
-        public static void AddInvoroSpecificServices(IServiceCollection services)
+        public static void AddInvoroServices(IServiceCollection services)
         {
             services.AddHttpContextAccessor();
 
             services.AddScoped<IFeaturesService, FeaturesService>();
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<IMongoService, MongoService>();
         }
     }
@@ -18,7 +20,7 @@ namespace Invoro.Api.Startup
     {
         public static void AddInvoroSpecificServices(this IServiceCollection services)
         {
-            DependecyInjectionServicesRegistrator.AddInvoroSpecificServices(services);
+            DependecyInjectionServicesRegistrator.AddInvoroServices(services);
         }
     }
 }

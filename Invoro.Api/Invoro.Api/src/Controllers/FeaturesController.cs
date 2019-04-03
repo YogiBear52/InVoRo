@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Invoro.Api.src.Api;
+using Invoro.Api.src.Authentication;
 using Invoro.Api.src.DataModel;
 using Invoro.Api.src.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Invoro.Api.src.Controllers
 {
-    public class FeaturesController : BaseController
+    public class FeaturesController : BaseController, IFeaturesController
     {
         #region Ctor
         public FeaturesController(IFeaturesService featuresService, IMapper mapper)
@@ -17,6 +19,7 @@ namespace Invoro.Api.src.Controllers
         }
 
         public IFeaturesService FeaturesService { get; }
+        public IAuthenticationService AuthenticationService { get; }
 
         #endregion
 

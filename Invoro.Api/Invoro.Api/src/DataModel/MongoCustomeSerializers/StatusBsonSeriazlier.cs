@@ -1,5 +1,6 @@
-﻿using MongoDB.Bson.Serialization;
-using System;
+﻿using System;
+using Invoro.Api.src.Api;
+using MongoDB.Bson.Serialization;
 
 namespace Invoro.Api.src.DataModel.MongoCustomeSerializers
 {
@@ -12,9 +13,16 @@ namespace Invoro.Api.src.DataModel.MongoCustomeSerializers
         {
             string statusAsString = context.Reader.ReadString();
 
-            Status status = StatusEnumStringConverter.ConvertStringToStatus(statusAsString);
+            try
+            {
+                Status status = StatusEnumStringConverter.ConvertStringToStatus(statusAsString);
 
-            return status;
+                return status;
+            }
+            catch (Exception exception)
+            {
+                throw ExceptionsApi.FailedToDeseraizleStatusFromMongoException(statusAsString, exception);
+            }
         }
 
         // Enum to string
