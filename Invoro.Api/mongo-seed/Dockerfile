@@ -1,5 +1,6 @@
 FROM mongo
 
-COPY . .
+COPY import.sh .
+COPY Features.json .
 
 ENTRYPOINT ["sh", "/import.sh"]
