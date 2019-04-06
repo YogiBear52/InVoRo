@@ -27,6 +27,10 @@ namespace Invoro.Api.src.DataModel
         [BsonElement("creationTime")]
         [BsonDateTimeOptions(DateOnly =false,Kind =DateTimeKind.Utc,Representation =BsonType.DateTime)]
         public DateTime CreationTime { get; set; }
+
+        [BsonElement("lastTimeModified")]
+        [BsonDateTimeOptions(DateOnly = false, Kind = DateTimeKind.Utc, Representation = BsonType.DateTime)]
+        public DateTime LastTimeModified { get; set; }
     }
 
     public class FeatureDtoResponse
@@ -45,6 +49,9 @@ namespace Invoro.Api.src.DataModel
 
         [JsonProperty("creationTime")]
         public DateTime CreationTime { get; set; }
+
+        [JsonProperty("lastTimeModified")]
+        public DateTime LastTimeModified { get; set; }
     }
 
     public class FeatureProfileMapping : Profile

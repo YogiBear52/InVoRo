@@ -3,41 +3,48 @@
     "name": "Asp.net Core service best practices",
     "status": "Released",
     "link": "http://localhost:8081/db/Invoro/Features",
-    "creationTime": ISODate("2019-06-03T23:32:18Z")
+    "creationTime": ISODate("2019-06-03T23:32:18Z"),
+    "lastTimeModified": ISODate("2019-06-03T23:32:18Z")
   },
   {
     "name": "Server - First request",
     "status": "Released",
     "link": "http://localhost:8081/db/Invoro/Features",
-    "creationTime": ISODate("2019-06-03T23:32:18Z")
+    "creationTime": ISODate("2019-06-03T23:32:18Z"),
+    "lastTimeModified": ISODate("2019-06-03T23:32:18Z")
   },
   {
     "name": "Client side - replace to react",
     "status": "Released",
     "link": "http://localhost:8081/db/Invoro/Features",
-    "creationTime": ISODate("2019-06-03T23:32:18Z")
+    "creationTime": ISODate("2019-06-03T23:32:18Z"),
+    "lastTimeModified": ISODate("2019-06-03T23:32:18Z")
   },
   {
     "name": "Voting",
     "status": "Planned",
     "link": "https://jenkins.io/projects/blueocean/roadmap/",
-    "creationTime": ISODate("2019-06-03T23:32:18Z")
+    "creationTime": ISODate("2019-06-03T23:32:18Z"),
+    "lastTimeModified": ISODate("2019-06-03T23:32:18Z")
   },
   {
     "name": "Publish client as library to npm",
     "status": "NotPlanned",
     "link": "https://jenkins.io/projects/blueocean/roadmap/",
-    "creationTime": ISODate("2019-06-03T23:32:18Z")
+    "creationTime": ISODate("2019-06-03T23:32:18Z"),
+    "lastTimeModified": ISODate("2019-06-03T23:32:18Z")
   },
   {
     "name": "II am a long long long long long long long long long long long long long long long long long feature name - Test me",
     "status": "InProgress",
     "link": "https://jenkins.io/projects/blueocean/roadmap/",
-    "creationTime": ISODate("2019-06-03T23:32:18Z")
+    "creationTime": ISODate("2019-06-03T23:32:18Z"),
+    "lastTimeModified": ISODate("2019-06-03T23:32:18Z")
   },
   {
     "name": "Feature WITHOUT a LINK",
     "status": "ReadySoon",
-    "creationTime": ISODate("2019-06-03T23:32:18Z")
+    "creationTime": ISODate("2019-06-03T23:32:18Z"),
+    "lastTimeModified": ISODate("2019-06-03T23:32:18Z")
   }
 ]
