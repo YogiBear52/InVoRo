@@ -26,6 +26,8 @@ export default class FeaturesApi {
 
     let responseData: any[] = await response.json();
     
-    return (responseData as Feature[]).map<Feature>(feature => new Feature(feature.id,feature.name,feature.status,feature.link));
+    return (responseData as Feature[])
+          .map<Feature>(feature => 
+            new Feature(feature.id,feature.name,feature.status,feature.link,new Date(feature.creationTime),new Date(feature.lastTimeModified)));
   }
 }
