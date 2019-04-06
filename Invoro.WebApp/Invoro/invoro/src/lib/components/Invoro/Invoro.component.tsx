@@ -3,19 +3,23 @@ import Feature from '../../dataModel/Feature'
 import FeaturesApi from '../../services/FeaturesApi.service';
 import FeaturesTableComponent from '../FeaturesTable/FeaturesTable.component'
 
-interface IInvoroState{
+interface InvoroState{
     features: Feature[] | null;
 }
 
-export default class Invoro extends React.Component {
+interface InvoroProps{
+    userIdentifier: string;
+}
+
+export default class Invoro extends React.Component<InvoroProps> {
     private featuresApi: FeaturesApi;
 
     constructor(props: any) {
      super(props);
-     this.featuresApi = new FeaturesApi();
+     this.featuresApi = new FeaturesApi(props.userIdentifier);
     }
 
-   state: IInvoroState = {features: null}
+   state: InvoroState = {features: null}
  
    public async componentDidMount() {
       // TODO: Handle Failure
