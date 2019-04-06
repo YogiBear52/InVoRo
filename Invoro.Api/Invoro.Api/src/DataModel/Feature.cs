@@ -23,6 +23,10 @@ namespace Invoro.Api.src.DataModel
 
         [BsonElement("link")]
         public string Link { get; set; }
+
+        [BsonElement("creationTime")]
+        [BsonDateTimeOptions(DateOnly =false,Kind =DateTimeKind.Utc,Representation =BsonType.DateTime)]
+        public DateTime CreationTime { get; set; }
     }
 
     public class FeatureDtoResponse
@@ -38,6 +42,9 @@ namespace Invoro.Api.src.DataModel
 
         [JsonProperty("link")]
         public string Link { get; set; }
+
+        [JsonProperty("creationTime")]
+        public DateTime CreationTime { get; set; }
     }
 
     public class FeatureProfileMapping : Profile
