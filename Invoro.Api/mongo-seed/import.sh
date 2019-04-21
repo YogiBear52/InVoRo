@@ -1,8 +1,7 @@
-#! /bin/bash
+#!/bin/bash
 
-# Delete collection
-mongo mongodb://root:example@mongo:27017/Invoro?authSource=admin --eval 'db.Features.drop()'
+# Initialize DB Schema
+mongo --host mongo --port 27017 --username root --password example --authenticationDatabase admin < mongoInitializer.js
 
-# Create collection
-# TODO: loop though all collections
+# Load Features from Json to collection
 mongoimport --host mongo --port 27017 --username root --password example --authenticationDatabase admin --db Invoro --collection Features --type json --file Features.json --jsonArray

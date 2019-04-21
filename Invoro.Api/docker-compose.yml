@@ -29,7 +29,6 @@ services:
 
   mongo_seed:
     image: ${DOCKER_REGISTRY-}mongo-seed
-    restart: always
     build:
       context: ./mongo-seed
       dockerfile: Dockerfile

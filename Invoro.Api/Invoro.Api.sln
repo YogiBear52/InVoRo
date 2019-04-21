@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invoro.Api", "Invoro.Api\Invoro.Api.csproj", "{46106C4E-712C-4794-AD8D-54F90A0DDEC0}"
 EndProject
@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mongo-seed", "mongo-seed", 
 		mongo-seed\Dockerfile = mongo-seed\Dockerfile
 		mongo-seed\Features.json = mongo-seed\Features.json
 		mongo-seed\import.sh = mongo-seed\import.sh
+		mongo-seed\mongoInitializer.js = mongo-seed\mongoInitializer.js
 	EndProjectSection
 EndProject
 Global
