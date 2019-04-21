@@ -2,5 +2,6 @@ FROM mongo
 
 COPY import.sh .
 COPY Features.json .
+COPY mongoInitializer.js .
 
-ENTRYPOINT ["sh", "/import.sh"]
+ENTRYPOINT ["/bin/bash", "/import.sh"]
