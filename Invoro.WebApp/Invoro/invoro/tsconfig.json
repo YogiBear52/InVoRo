@@ -20,7 +20,8 @@
     "declaration": false,
     "noLib": false,
     "skipLibCheck": true,
-    "allowJs": true
+    "allowJs": true,
+    "downlevelIteration": true
   },
   "compileOnSave": false,
   "exclude": [
