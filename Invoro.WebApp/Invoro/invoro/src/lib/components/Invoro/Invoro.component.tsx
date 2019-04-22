@@ -1,13 +1,13 @@
 import React from 'react';
-import Feature from '../../dataModel/Feature'
+import FeaturesCategory from '../../dataModel/FeaturesCategory'
 import FeaturesApi from '../../services/FeaturesApi.service';
 import FeaturesTableComponent from '../FeaturesTable/FeaturesTable.component'
 
-interface InvoroState{
-    features: Feature[] | null;
+interface InvoroState {
+    featuresCategories: FeaturesCategory[] | null;
 }
 
-interface InvoroProps{
+interface InvoroProps {
     userIdentifier: string;
 }
 
@@ -15,24 +15,25 @@ export default class Invoro extends React.Component<InvoroProps> {
     private featuresApi: FeaturesApi;
 
     constructor(props: any) {
-     super(props);
-     this.featuresApi = new FeaturesApi(props.userIdentifier);
+        super(props);
+        this.featuresApi = new FeaturesApi(props.userIdentifier, fetch.bind(window));
     }
 
-   state: InvoroState = {features: null}
- 
-   public async componentDidMount() {
-      // TODO: Handle Failure
-      let featuresResult: Feature[] = await this.featuresApi.getFeatures();
-      this.setState({features:featuresResult});
-   }
- 
-    render(){
-        if (this.state.features !== null){
-            return <FeaturesTableComponent features = {this.state.features} />;
-              }
-            else {
-                return <div>Loading..</div>;
-              }
+    state: InvoroState = { featuresCategories: null }
+
+    public async componentDidMount() {
+        // TODO: Handle Failure
+        // TODO: not best practice anymore
+        let featuresResult: FeaturesCategory[] = await this.featuresApi.getFeatures();
+        this.setState({ featuresCategories: featuresResult });
+    }
+
+    render() {
+        if (this.state.featuresCategories !== null) {
+            return <FeaturesTableComponent featuresCategories={this.state.featuresCategories} />;
+        }
+        else {
+            return <div>Loading..</div>;
+        }
     }
 }

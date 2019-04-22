@@ -12,23 +12,32 @@ namespace Invoro.Api.src.DataModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+        [BsonRequired]
         public ObjectId Id { get; set; }
 
         [BsonElement("name")]
+        [BsonRequired]
         public string Name { get; set; }
 
         [BsonElement("status")]
+        [BsonRequired]
         [BsonSerializer(typeof(StatusBsonSeriazlier))]
         public Status Status { get; set; }
 
         [BsonElement("link")]
         public string Link { get; set; }
 
+        [BsonElement("category")]
+        [BsonRequired]
+        public string CategoryName { get; set; }
+
         [BsonElement("creationTime")]
+        [BsonRequired]
         [BsonDateTimeOptions(DateOnly =false,Kind =DateTimeKind.Utc,Representation =BsonType.DateTime)]
         public DateTime CreationTime { get; set; }
 
         [BsonElement("lastTimeModified")]
+        [BsonRequired]
         [BsonDateTimeOptions(DateOnly = false, Kind = DateTimeKind.Utc, Representation = BsonType.DateTime)]
         public DateTime LastTimeModified { get; set; }
     }
@@ -36,21 +45,30 @@ namespace Invoro.Api.src.DataModel
     public class FeatureDtoResponse
     {
         [JsonProperty("id")]
+        [JsonRequired]
         public string Id { get; set; }
 
         [JsonProperty("name")]
+        [JsonRequired]
         public string Name { get; set; }
 
         [JsonProperty("status")]
+        [JsonRequired]
         public string Status { get; set; }
 
         [JsonProperty("link")]
         public string Link { get; set; }
 
+        [JsonProperty("categoryName")]
+        [JsonRequired]
+        public string CategoryName { get; set; }
+
         [JsonProperty("creationTime")]
+        [JsonRequired]
         public DateTime CreationTime { get; set; }
 
         [JsonProperty("lastTimeModified")]
+        [JsonRequired]
         public DateTime LastTimeModified { get; set; }
     }
 
