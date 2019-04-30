@@ -27,7 +27,7 @@ namespace Invoro.Api.src.DataModel
         [BsonElement("link")]
         public string Link { get; set; }
 
-        [BsonElement("category")]
+        [BsonElement("categoryName")]
         [BsonRequired]
         public string CategoryName { get; set; }
 
