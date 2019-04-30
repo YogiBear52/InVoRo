@@ -1,20 +1,22 @@
 {
   "name": "invoro",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "3.9.2",
-    "@types/react-dom": "16.8.3",
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
-    "react-scripts": "2.1.8",
-    "typescript": "3.3.4000"
+  "version": "0.1.7",
+  "private": false,
+  "license": "Apache 2.0",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "babel": {
+    "presets": [
+      "@babel/react"
+    ]
   },
+  "dependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "publish:npm": "SET NODE_ENV=production && if exist lib rmdir /s /q lib && mkdir lib && npx babel src/lib/ --out-dir lib --copy-files"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -26,11 +28,23 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@material-ui/core": "3.9.3",
     "@types/enzyme": "3.9.1",
-    "@types/jest": "24.0.11",
+    "@types/jest": "24.0.12",
+    "@types/react-dom": "16.8.4",
     "enzyme": "3.9.0",
-    "enzyme-adapter-react-16": "1.11.2",
-    "jest-dom": "3.1.3",
-    "react-test-renderer": "16.8.6"
+    "enzyme-adapter-react-16": "1.12.1",
+    "jest-dom": "3.1.4",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scripts": "3.0.0",
+    "react-test-renderer": "16.8.6",
+    "typescript": "3.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YogiBear52/InVoRo"
   }
 }

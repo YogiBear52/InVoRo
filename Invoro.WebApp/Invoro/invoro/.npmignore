@@ -1,0 +1,10 @@
+# Ignore by default
+*
+!package.json
+!package-lock.json
+!README.md
+
+# Whitelist the folder
+!lib/**
+lib/*.test.ts
+lib/*.test.tsx
