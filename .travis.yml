@@ -41,6 +41,13 @@ jobs:
           - docker images
           - docker tag invoro-api $DOCKER_USERNAME/invoro-api:$TRAVIS_TAG
           - docker push $DOCKER_USERNAME/invoro-api:$TRAVIS_TAG
+    - deploy:
+      provider: npm
+      email: "NPM_EMAIL"
+      api_key: "NPM_AUTH_TOKEN"
+      before_deploy:
+          - cd Invoro.WebApp
+          
 #Only pull request      
 branches:
   except:
