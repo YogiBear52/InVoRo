@@ -43,9 +43,8 @@ jobs:
           - docker push $DOCKER_USERNAME/invoro-api:$TRAVIS_TAG
     - stage: deploy
       name: "Publish to npm"
-      dist: trusty
       node_js: "10"
-      before_deploy: cd Invoro.WebApp/Invoro/invoro
+      before_script: cd Invoro.WebApp/Invoro/invoro
       deploy:
         provider: npm
         email: "$NPM_EMAIL"
