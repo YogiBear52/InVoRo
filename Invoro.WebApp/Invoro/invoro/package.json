@@ -25,12 +25,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/polyfill": "^7.4.4",
+    "@babel/polyfill": "7.4.4",
     "@babel/cli": "7.4.4",
-    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-env": "7.4.4",
     "@types/enzyme": "3.9.1",
     "@types/jest": "24.0.12",
     "@types/react-dom": "16.8.4",
+    "cross-env": "5.2.0",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.12.1",
     "jest-dom": "3.1.4",
@@ -44,7 +45,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "delete-temp-folders": "if exist lib rmdir /s /q lib && if exist compiledTypescript rmdir /s /q compiledTypescript",
-    "build-library": "SET NODE_ENV=production && npx tsc --build tsconfig.publish.json && npx babel compiledTypescript --config-file ./.publish.babelrc --out-dir lib --copy-files",
+    "build-library": "cross-env NODE_ENV=production && npx tsc --build tsconfig.publish.json && npx babel compiledTypescript --config-file ./.publish.babelrc --out-dir lib --copy-files",
     "prepublishOnly": "npm install && npm run build-library"
   },
   "repository": {
