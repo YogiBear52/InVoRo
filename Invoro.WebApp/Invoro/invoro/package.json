@@ -1,22 +1,19 @@
 {
   "name": "invoro",
-  "version": "0.1.7",
+  "version": "0.1.19",
   "private": false,
   "license": "Apache 2.0",
   "main": "lib/index.js",
   "module": "lib/index.js",
-  "babel": {
-    "presets": [
-      "@babel/react"
-    ]
+  "dependencies": {
+    "@material-ui/core": "3.9.3",
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
   },
-  "dependencies": {},
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "publish:npm": "SET NODE_ENV=production && if exist lib rmdir /s /q lib && mkdir lib && npx babel src/lib/ --out-dir lib --copy-files"
+  "peerDependencies": {
+    "react": ">=16.8.6",
+    "react-dom": ">=16.8.6",
+    "@material-ui/core": ">=3.9.3"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,23 +25,44 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/polyfill": "^7.4.4",
     "@babel/cli": "7.4.4",
-    "@babel/preset-typescript": "^7.3.3",
-    "@material-ui/core": "3.9.3",
+    "@babel/preset-env": "^7.4.4",
     "@types/enzyme": "3.9.1",
     "@types/jest": "24.0.12",
     "@types/react-dom": "16.8.4",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.12.1",
     "jest-dom": "3.1.4",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
     "react-scripts": "3.0.0",
     "react-test-renderer": "16.8.6",
     "typescript": "3.4.5"
   },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "delete-temp-folders": "if exist lib rmdir /s /q lib && if exist compiledTypescript rmdir /s /q compiledTypescript",
+    "build-library": "SET NODE_ENV=production && npx tsc --build tsconfig.publish.json && npx babel compiledTypescript --config-file ./.publish.babelrc --out-dir lib --copy-files",
+    "prepublishOnly": "npm run delete-temp-folders && npm run build-library",
+    "postpublish": "npm run delete-temp-folders"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/YogiBear52/InVoRo"
-  }
+  },
+  "author": {
+    "name": "Lev Levin and Yogev Mizrahi",
+    "email": "miz.yogev@gmail.com",
+    "url": "yogevmizrahi.com"
+  },
+  "keywords": [
+    "roadmap",
+    "road-map",
+    "road map",
+    "interactive",
+    "influence",
+    "vote"
+  ]
 }
