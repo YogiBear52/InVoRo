@@ -23,6 +23,7 @@ jobs:
     - stage: deploy
       name: "Docker Deploy as integration"
       dist: xenial
+      language: generic
       before_script: cd Invoro.Api
       script:
           - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -34,6 +35,7 @@ jobs:
       name: "Docker Deploy to as production"
       if: tag IS present 
       dist: xenial
+      language: generic
       before_script: cd Invoro.Api
       script:
           - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -50,6 +52,8 @@ jobs:
         provider: npm
         email: "$NPM_EMAIL"
         api_key: "$NPM_AUTH_TOKEN"
+        on:
+          tags: true
           
 #Only pull request      
 branches:
