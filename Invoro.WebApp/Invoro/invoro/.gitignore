@@ -11,6 +11,7 @@
 # production
 /build
 /lib
+/compiledTypescript
 
 # misc
 .DS_Store

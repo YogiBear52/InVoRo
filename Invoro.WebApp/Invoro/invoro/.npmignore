@@ -1,10 +1,10 @@
 # Ignore by default
 *
+
+# Whitelist files
 !package.json
 !package-lock.json
 !README.md
 
-# Whitelist the folder
+# Whitelist folders
 !lib/**
-lib/*.test.ts
-lib/*.test.tsx
