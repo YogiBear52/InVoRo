@@ -17,7 +17,7 @@ jobs:
       name: "web app test"
       language: node_js
       node_js:
-        - "11"
+        - "10"
       before_install: cd Invoro.WebApp/Invoro/invoro
 
     - stage: deploy
@@ -44,6 +44,7 @@ jobs:
     - stage: deploy
       name: "Publish to npm"
       dist: trusty
+      node_js: "10"
       before_deploy: cd Invoro.WebApp/Invoro/invoro
       deploy:
         provider: npm
