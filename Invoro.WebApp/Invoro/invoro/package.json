@@ -45,8 +45,7 @@
     "eject": "react-scripts eject",
     "delete-temp-folders": "if exist lib rmdir /s /q lib && if exist compiledTypescript rmdir /s /q compiledTypescript",
     "build-library": "SET NODE_ENV=production && npx tsc --build tsconfig.publish.json && npx babel compiledTypescript --config-file ./.publish.babelrc --out-dir lib --copy-files",
-    "prepublishOnly": "npm run delete-temp-folders && npm run build-library",
-    "postpublish": "npm run delete-temp-folders"
+    "prepublishOnly": "npm run build-library"
   },
   "repository": {
     "type": "git",
