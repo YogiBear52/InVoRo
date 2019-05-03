@@ -42,7 +42,7 @@ jobs:
           - docker tag invoro-api $DOCKER_USERNAME/invoro-api:$TRAVIS_TAG
           - docker push $DOCKER_USERNAME/invoro-api:$TRAVIS_TAG
     - stage: deploy
-      before_script: cd Invoro.WebApp
+      before_deploy: cd Invoro.WebApp/Invoro/invoro
       deploy:
         provider: npm
         email: "$NPM_EMAIL"
