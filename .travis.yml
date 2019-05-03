@@ -17,7 +17,7 @@ jobs:
       name: "web app test"
       language: node_js
       node_js:
-        - "11"
+        - "10"
       before_install: cd Invoro.WebApp/Invoro/invoro
 
     - stage: deploy
@@ -41,6 +41,16 @@ jobs:
           - docker images
           - docker tag invoro-api $DOCKER_USERNAME/invoro-api:$TRAVIS_TAG
           - docker push $DOCKER_USERNAME/invoro-api:$TRAVIS_TAG
+    - stage: deploy
+      name: "Publish to npm"
+      language: generic
+      node_js: "10"
+      before_script: cd Invoro.WebApp/Invoro/invoro
+      deploy:
+        provider: npm
+        email: "$NPM_EMAIL"
+        api_key: "$NPM_AUTH_TOKEN"
+          
 #Only pull request      
 branches:
   except:
