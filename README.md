@@ -34,12 +34,11 @@ Of course, the client's component is customizable.
 
 1. The backend service is using by default MongoDB. You can implement your own DB service provider (Not yet developed).
     - The service doesn't have a built-in authentication mechanism. If you want, put the service behind an authentication service such as HTTPD / Nginx.
-2. The backend service will be published as a docker image based on a linux distribution.
-3. The client is a React component which will be published as a npm package.
+2. The backend service will be published as a [docker image](https://hub.docker.com/r/yogevmizrahi/invoro-api) based on a linux distribution.
+3. The client is a React component which will be published as a [npm package](https://www.npmjs.com/package/invoro).
 
 ## Roadmap:
 
 1. Release 1 - Show Features, Enable Voting system, Simple mongo creating script.
 2. Release 2 - Make the service and the client component more customizable.
 3. Release 3 - Privileges - Enable content modification on the UI only for authorized users.
-

@@ -22,6 +22,7 @@ jobs:
 
     - stage: deploy
       name: "Docker Deploy as integration"
+      if: tag IS NOT present
       dist: xenial
       language: generic
       before_script: cd Invoro.Api
