@@ -4,6 +4,7 @@ using Invoro.Api.src.Authentication;
 using Invoro.Api.src.DataModel;
 using Invoro.Api.src.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,10 +13,11 @@ namespace Invoro.Api.src.Controllers
     public class FeaturesController : BaseController, IFeaturesController
     {
         #region Ctor
-        public FeaturesController(IFeaturesService featuresService, IMapper mapper)
+        public FeaturesController(IFeaturesService featuresService, IAuthenticationService authenticationService, IMapper mapper)
             : base(mapper)
         {
-            FeaturesService = featuresService;
+            this.FeaturesService = featuresService;
+            this.AuthenticationService = authenticationService;
         }
 
         public IFeaturesService FeaturesService { get; }
@@ -32,6 +34,46 @@ namespace Invoro.Api.src.Controllers
                 base.Mapper.Map<FeatureDtoResponse[]>(featuresFromMongo);
 
             return this.Ok(response);
+        }
+        
+        [HttpGet]
+        public async Task<IEnumerable<string>> GetVotedFeaturesByUser()
+        {
+            IEnumerable<string> votedFeatures = await FeaturesService.GetVotedFeaturesByUser(this.AuthenticationService.User.Identifier);
+
+            return votedFeatures;
+        }
+
+        [HttpPost]
+        [Route("{featureId}")]
+        public async Task<IActionResult> VoteToFeature(string featureId)
+        {
+            try
+            {
+                await FeaturesService.VoteToFeature(featureId, this.AuthenticationService.User.Identifier);
+            }
+            catch (Exception exception)
+            {
+                return this.NotFound(exception.Message);
+            }
+
+            return this.Ok();
+        }
+
+        [HttpPost]
+        [Route("{featureId}")]
+        public async Task<IActionResult> UnvoteToFeature(string featureId)
+        {
+            try
+            {
+                await FeaturesService.UnvoteToFeature(featureId, this.AuthenticationService.User.Identifier);
+            }
+            catch(ArgumentException exception)
+            {
+                return this.NotFound(exception.Message);
+            }
+
+            return this.Ok();
         }
     }
 }

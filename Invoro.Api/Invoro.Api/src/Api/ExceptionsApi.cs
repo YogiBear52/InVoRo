@@ -54,5 +54,21 @@ namespace Invoro.Api.src.Api
         }
 
         #endregion
+
+        #region Api
+
+        public static Exception VotedFeatureDoesntExistException()
+        {
+            string message = "The feature you are trying to vote for, doesn't exist";
+            return new ArgumentException(message);
+        }
+
+        public static Exception UnvotedFeatureDoesntExistException()
+        {
+            string message = "The feature you are trying to unvote for, doesn't exist";
+            return new ArgumentException(message);
+        }
+
+        #endregion
     }
 }

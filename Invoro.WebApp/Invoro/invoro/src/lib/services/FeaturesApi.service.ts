@@ -3,10 +3,13 @@ import FeatureCategory from "../dataModel/FeaturesCategory";
 
 export default class FeaturesApi {
 
-  private FEATURES_API: string = 'https://localhost/api/Features';
+  private GET_FEATURES_API: string = 'https://localhost/api/Features/GetFeatures';
+  private GET_VOTED_FEATURES_BY_USER_API: string = 'https://localhost/api/Features/GetVotedFeaturesByUser';
+  private VOTE_TO_FEATURE_API: string = 'https://localhost/api/Features/VoteToFeature';
+  private UNVOTE_TO_FEATURE_API: string = 'https://localhost/api/Features/UnvoteToFeature';
 
   private headers: HeadersInit;
-  constructor(private userIdentifier: string | null, private h: (input: RequestInfo, init?: RequestInit) => Promise<Response>) {
+  constructor(private userIdentifier: string | null, private fetchApi: (input: RequestInfo, init?: RequestInit) => Promise<Response>) {
     this.headers = {
       "Accept-Encoding": "gzip, deflate, br"
     }
@@ -17,12 +20,12 @@ export default class FeaturesApi {
   }
 
   public async getFeatures(): Promise<FeatureCategory[]> {
-    let response: Response = await this.h(this.FEATURES_API, {
+    let response: Response = await this.fetchApi(this.GET_FEATURES_API, {
       headers: this.headers
     });
 
     if (!response.ok) {
-      throw new Error(response.statusText)
+      throw new Error(response.statusText);
     }
 
     let features: FeatureDTO[] = await this.GetFeaturesFromResponse(response);
@@ -32,6 +35,40 @@ export default class FeaturesApi {
     return categories;
   }
 
+  public async getVotedFeaturesByUser(): Promise<Set<string>> {
+    let response: Response = await this.fetchApi(this.GET_VOTED_FEATURES_BY_USER_API, {
+      headers: this.headers
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    let votedFeatuerIds: Set<string> = new Set(await response.json());
+    return votedFeatuerIds;
+  }
+
+  public async voteToFeature(featureId: string): Promise<void> {
+    let response: Response = await this.fetchApi(this.VOTE_TO_FEATURE_API + "/" + featureId, {
+      method: 'POST',
+      headers: this.headers
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+  }
+
+  public async unvoteToFeature(featureId: string): Promise<void> {
+    let response: Response = await this.fetchApi(this.UNVOTE_TO_FEATURE_API + "/" + featureId, {
+      method: 'POST',
+      headers: this.headers
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+  }
 
   private async GetFeaturesFromResponse(response: Response): Promise<FeatureDTO[]> {
     let responseData: any[] = await response.json();
