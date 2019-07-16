@@ -13,7 +13,7 @@ interface FeaturesTableProps {
   featureUnvoteHandle(featureId: string): void;
 }
 
-export default class FeaturesTableComponent extends React.Component<FeaturesTableProps, {}> {
+export default class FeaturesTableComponent extends React.Component<FeaturesTableProps> {
   render() {
     return (
       <Paper>
