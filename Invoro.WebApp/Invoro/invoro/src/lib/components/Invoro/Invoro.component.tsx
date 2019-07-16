@@ -9,6 +9,7 @@ interface InvoroState {
 
 interface InvoroProps {
     userIdentifier: string;
+    fetchApi: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
 }
 
 export default class Invoro extends React.Component<InvoroProps> {
@@ -16,7 +17,7 @@ export default class Invoro extends React.Component<InvoroProps> {
 
     constructor(props: any) {
         super(props);
-        this.featuresApi = new FeaturesApi(props.userIdentifier, fetch.bind(window));
+        this.featuresApi = new FeaturesApi(props.userIdentifier, props.fetchApi);
     }
 
     state: InvoroState = { featuresCategories: null }
