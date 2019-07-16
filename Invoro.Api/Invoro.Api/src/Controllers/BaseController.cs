@@ -6,7 +6,7 @@ namespace Invoro.Api.src.Controllers
 {
     [ApiController]
     [EnableCors]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public abstract class BaseController : ControllerBase
     {
         public BaseController(IMapper mapper)

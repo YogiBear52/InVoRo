@@ -11,10 +11,17 @@ it('render one feature with the correct name', () => {
     const name: string = "MyFeatureName";
     let features: Feature[] = [new Feature("ID", name, Status.NotPlanned, "LINK", new Date(), new Date())];
     let featuresCategories: FeatureCategory[] = [new FeatureCategory("MyCategory", features)];
+    let featuresVoted: Set<string> = new Set<string>();
+    let voteHandle = (id: string) => { };
+    let unvoteHandle = (id: string) => { };
 
     // Action
     let result =
-        shallow(<FeaturesTableComponent featuresCategories={featuresCategories} />)
+        shallow(<FeaturesTableComponent
+            featuresCategories={featuresCategories}
+            featuresVoted={featuresVoted}
+            featureVoteHandle={voteHandle}
+            featureUnvoteHandle={unvoteHandle} />)
             .find(".feature-row").shallow()
             .find("span");
 
@@ -28,10 +35,17 @@ it('render feature with the correct link as linkable', () => {
     const link: string = "MyLink";
     let features: Feature[] = [new Feature("ID", "NAME", Status.NotPlanned, link, new Date(), new Date())];
     let featuresCategories: FeatureCategory[] = [new FeatureCategory("MyCategory", features)];
+    let featuresVoted: Set<string> = new Set<string>();
+    let voteHandle = (id: string) => { };
+    let unvoteHandle = (id: string) => { };
 
     // Action
     let result =
-        shallow(<FeaturesTableComponent featuresCategories={featuresCategories} />)
+        shallow(<FeaturesTableComponent
+            featuresCategories={featuresCategories}
+            featuresVoted={featuresVoted}
+            featureVoteHandle={voteHandle}
+            featureUnvoteHandle={unvoteHandle} />)
             .find(".feature-row").shallow()
             .find('a');
 
@@ -46,10 +60,17 @@ it('render multiple features', () => {
     let features: Feature[] = [new Feature("ID1", "NAME", Status.NotPlanned, "Link", new Date(), new Date()),
     new Feature("ID2", "NAME", Status.NotPlanned, "Link", new Date(), new Date())];
     let featuresCategories: FeatureCategory[] = [new FeatureCategory("MyCategory", features)];
+    let featuresVoted: Set<string> = new Set<string>();
+    let voteHandle = (id: string) => { };
+    let unvoteHandle = (id: string) => { };
 
     // Action
     let tableRows =
-        shallow(<FeaturesTableComponent featuresCategories={featuresCategories} />)
+        shallow(<FeaturesTableComponent
+            featuresCategories={featuresCategories}
+            featuresVoted={featuresVoted}
+            featureVoteHandle={voteHandle}
+            featureUnvoteHandle={unvoteHandle} />)
             .find(".feature-row");
 
     // Assert    
