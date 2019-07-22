@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
-import StatusComponent from "../Status.component";
-import VoteComponent from "../Vote.component";
+import StatusComponent from "../Status/Status.component";
+import VoteComponent from "../Vote/Vote.component";
 import Status from "../../dataModel/Status";
 import Feature from "../../dataModel/Feature";
 import FeaturesCategory from "../../dataModel/FeaturesCategory";
