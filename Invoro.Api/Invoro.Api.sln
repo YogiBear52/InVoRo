@@ -13,16 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{299E7F9A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invoro.Api.UnitTests", "Invoro.Api.UnitTests\Invoro.Api.UnitTests.csproj", "{1A9DFF45-A2E6-439B-9340-478F628F9E6D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{75B3EB63-912F-493A-8CBB-7DFEED0D72B2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mongo-seed", "mongo-seed", "{DD89D1E5-75C6-4E33-A31A-CC21910F830F}"
-	ProjectSection(SolutionItems) = preProject
-		mongo-seed\Dockerfile = mongo-seed\Dockerfile
-		mongo-seed\Features.json = mongo-seed\Features.json
-		mongo-seed\import.sh = mongo-seed\import.sh
-		mongo-seed\mongoInitializer.js = mongo-seed\mongoInitializer.js
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,7 +42,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6C15F584-D36C-4407-990C-E0F9E4930A55} = {299E7F9A-64D8-4C01-82C5-519F20B3BC73}
 		{1A9DFF45-A2E6-439B-9340-478F628F9E6D} = {299E7F9A-64D8-4C01-82C5-519F20B3BC73}
-		{DD89D1E5-75C6-4E33-A31A-CC21910F830F} = {75B3EB63-912F-493A-8CBB-7DFEED0D72B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85350432-DF62-49EA-A873-A019048C9DD9}
