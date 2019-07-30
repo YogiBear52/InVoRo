@@ -6,6 +6,6 @@ export default class App extends React.Component {
   state = { userIdentifier: "AUserIdentity" };
 
   render() {
-    return <Invoro userIdentifier={this.state.userIdentifier} />;
+    return <Invoro userIdentifier={this.state.userIdentifier} fetchApi={fetch.bind(window)} />;
   }
 }

@@ -1,6 +1,6 @@
-import React, { ReactComponentElement } from 'react';
+import React from 'react';
 import Chip from '@material-ui/core/Chip';
-import withStyles, { CSSProperties } from '@material-ui/core/styles/withStyles';
+import withStyles from '@material-ui/core/styles/withStyles';
 import { createStyles } from '@material-ui/core';
 import { yellow, red, green, orange, lime } from '@material-ui/core/colors';
 import Status from '../dataModel/Status';
@@ -48,9 +48,9 @@ class StatusComponent extends React.Component<StatusProps, {}> {
         return this.props.classes.readySoonStatus;
       case (Status.Released):
         return this.props.classes.releasedStatus;
+      default:
+        throw new Error("Bug - probably unhandled new Status");
     }
-
-    throw new Error("An unknown status");
   }
 
   private getLabel(status: Status): string {

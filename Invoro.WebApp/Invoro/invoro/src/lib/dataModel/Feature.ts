@@ -16,6 +16,10 @@ export default class Feature {
         this.creationTime = creationTime;
         this.lastTimeModified = lastTimeModified;
     }
+
+    public static Compare(a: Feature, b: Feature): number {
+        return a.name.localeCompare(b.name);
+    }
 }
 
 export class FeatureDTO extends Feature {
