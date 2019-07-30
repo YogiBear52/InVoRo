@@ -7,6 +7,7 @@ namespace Invoro.Api.src.Services
     public class MongoService : IMongoService
     {
         private static readonly string MONGO_CONNECTION_STRING_CONFIG_KEY = "MongoConnectionString";
+        protected static readonly string MONGO_CONFIG_SECTION_KEY = "Mongo";
 
         private readonly string _DbName;
 
@@ -14,7 +15,7 @@ namespace Invoro.Api.src.Services
 
         public MongoService(IConfiguration configuration)
         {
-            string mongoConnectionString = configuration.GetConnectionString(MONGO_CONNECTION_STRING_CONFIG_KEY);
+            string mongoConnectionString = configuration.GetSection(MONGO_CONFIG_SECTION_KEY).GetConnectionString(MONGO_CONNECTION_STRING_CONFIG_KEY);
 
             if (string.IsNullOrWhiteSpace(mongoConnectionString))
             {
