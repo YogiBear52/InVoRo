@@ -89,7 +89,7 @@ namespace Invoro.Api.UnitTests.Services
         {
             Mock<IConfiguration> configurationMock = new Mock<IConfiguration>();
             configurationMock
-                .Setup(_ => _.GetSection("ConnectionString")[MONGO_CONNECTION_STRING_CONFIG_KEY])
+                .Setup(_ => _.GetSection("Mongo").GetSection("ConnectionString")[MONGO_CONNECTION_STRING_CONFIG_KEY])
                 .Returns(connectionString);
 
             return configurationMock;
