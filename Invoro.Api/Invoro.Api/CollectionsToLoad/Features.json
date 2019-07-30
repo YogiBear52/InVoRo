@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Asp.net Core service best practices",
+    "status": "Released",
+    "link": "http://localhost:8081/db/Invoro/Features",
+    "categoryName": "Client",
+    "creationTime": "2019-06-03T23:32:18Z",
+    "lastTimeModified": "2019-06-03T23:32:18Z"
+  },
+  {
+    "name": "Server - First request",
+    "status": "Released",
+    "link": "http://localhost:8081/db/Invoro/Features",
+    "categoryName": "Client",
+    "creationTime": "2019-06-03T23:32:18Z",
+    "lastTimeModified": "2019-06-03T23:32:18Z"
+  },
+  {
+    "name": "Client side - replace to react",
+    "status": "Released",
+    "link": "http://localhost:8081/db/Invoro/Features",
+    "categoryName": "Client",
+    "creationTime": "2019-06-03T23:32:18Z",
+    "lastTimeModified": "2019-06-03T23:32:18Z"
+  },
+  {
+    "name": "Voting",
+    "status": "Planned",
+    "categoryName": "Algorithm",
+    "link": "https://jenkins.io/projects/blueocean/roadmap/",
+    "creationTime": "2019-06-03T23:32:18Z",
+    "lastTimeModified": "2019-06-03T23:32:18Z"
+  },
+  {
+    "name": "Publish client as library to npm",
+    "status": "NotPlanned",
+    "link": "https://jenkins.io/projects/blueocean/roadmap/",
+    "categoryName":"Server",
+    "creationTime": "2019-06-03T23:32:18Z",
+    "lastTimeModified": "2019-06-03T23:32:18Z"
+  },
+  {
+    "name": "II am a long long long long long long long long long long long long long long long long long feature name - Test me",
+    "status": "InProgress",
+    "link": "https://jenkins.io/projects/blueocean/roadmap/",
+    "categoryName": "Server",
+    "creationTime": "2019-06-03T23:32:18Z",
+    "lastTimeModified": "2019-06-03T23:32:18Z"
+  },
+  {
+    "name": "A A Feature WITHOUT a LINK",
+    "status": "ReadySoon",
+    "categoryName": "ProgrammerExperiance",
+    "creationTime": "2019-06-03T23:32:18Z",
+    "lastTimeModified": "2019-06-03T23:32:18Z"
+  }
+]

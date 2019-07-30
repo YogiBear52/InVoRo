@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Invoro.Api.Startup
 {
@@ -12,7 +13,14 @@ namespace Invoro.Api.Startup
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseKestrel();
+             .ConfigureLogging(loggerBuilder =>
+             {
+#if DEBUG
+                 loggerBuilder.AddConsole();
+                 loggerBuilder.AddDebug();
+#endif
+             })
+             .UseStartup<Startup>()
+             .UseKestrel();
     }
 }
