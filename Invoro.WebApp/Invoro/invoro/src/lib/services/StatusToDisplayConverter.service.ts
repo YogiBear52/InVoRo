@@ -13,7 +13,8 @@ export default class StatusToDisplayConverter {
         return "Ready Soon";
       case (Status.Released):
         return "Released";
+      default:
+        throw new Error(`An unknown status: ${status}`);
     }
-    throw new Error(`An unknown status: ${status}`);
   }
 }

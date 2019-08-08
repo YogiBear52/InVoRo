@@ -1,4 +1,4 @@
-import Feature, { FeatureDTO } from "./Feature"
+import Feature from "./Feature"
 
 export default class FeatureCategory {
     public name: string;
@@ -7,5 +7,9 @@ export default class FeatureCategory {
     public constructor(name: string, features: Feature[]) {
         this.name = name;
         this.features = [...features];
+    }
+
+    public static Compare(a: FeatureCategory, b: FeatureCategory): number {
+        return a.name.localeCompare(b.name);
     }
 }
