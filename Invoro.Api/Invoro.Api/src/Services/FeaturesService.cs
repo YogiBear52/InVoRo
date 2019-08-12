@@ -37,7 +37,7 @@ namespace Invoro.Api.src.Services
                 Where(featureVote => featureVote.UserId == userId).
                 Select(feature => feature.FeatureId);
 
-            return await result.ToListAsync();
+            return await result.ToListAsync(base.RequestCancellationToken);
         }
 
         public async Task VoteToFeature(string featureId, string userId)

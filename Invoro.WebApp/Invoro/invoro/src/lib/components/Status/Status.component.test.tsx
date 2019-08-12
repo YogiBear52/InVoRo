@@ -14,8 +14,7 @@ describe("StatusComponent", () => {
         let statusComponent: ReactWrapper = mount(<StatusComponent {...props} />);
 
         // Assert
-        const chip = statusComponent.find("Chip");
-        expect(chip.prop('label')).toBe("Not Planned");
+        AssertIfChipStatusNotEquals(statusComponent, "Not Planned");
     });
 
     it("when status is Planned, the label is corresponding", () => {
@@ -28,8 +27,7 @@ describe("StatusComponent", () => {
         let statusComponent: ReactWrapper = mount(<StatusComponent {...props} />);
 
         // Assert
-        const chip = statusComponent.find("Chip");
-        expect(chip.prop('label')).toBe("Planned");
+        AssertIfChipStatusNotEquals(statusComponent, "Planned");
     });
 
     it("when status is InProgress, the label is corresponding", () => {
@@ -42,8 +40,7 @@ describe("StatusComponent", () => {
         let statusComponent: ReactWrapper = mount(<StatusComponent {...props} />);
 
         // Assert
-        const chip = statusComponent.find("Chip");
-        expect(chip.prop('label')).toBe("In Progress");
+        AssertIfChipStatusNotEquals(statusComponent, "In Progress");
     });
 
     it("when status is ReadySoon, the label is corresponding", () => {
@@ -56,8 +53,7 @@ describe("StatusComponent", () => {
         let statusComponent: ReactWrapper = mount(<StatusComponent {...props} />);
 
         // Assert
-        const chip = statusComponent.find("Chip");
-        expect(chip.prop('label')).toBe("Ready Soon");
+        AssertIfChipStatusNotEquals(statusComponent, "Ready Soon");
     });
 
     it("when status is Released, the label is corresponding", () => {
@@ -70,7 +66,11 @@ describe("StatusComponent", () => {
         let statusComponent: ReactWrapper = mount(<StatusComponent {...props} />);
 
         // Assert
-        const chip = statusComponent.find("Chip");
-        expect(chip.prop('label')).toBe("Released");
+        AssertIfChipStatusNotEquals(statusComponent, "Released");
     });
 });
+
+function AssertIfChipStatusNotEquals(statusComponent: ReactWrapper<{}, {}, React.Component<{}, {}, any>>, chipValue: string): void {
+    const chip = statusComponent.find("Chip");
+    expect(chip.prop('label')).toBe(chipValue);
+}
