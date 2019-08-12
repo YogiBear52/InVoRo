@@ -3,8 +3,8 @@ import Chip from '@material-ui/core/Chip';
 import withStyles, { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { createStyles } from '@material-ui/core';
 import { yellow, red, green, orange, lime } from '@material-ui/core/colors';
-import Status from '../dataModel/Status';
-import StatusToDisplayConverter from "../services/StatusToDisplayConverter.service";
+import Status from '../../dataModel/Status';
+import StatusToDisplayConverter from "../../services/StatusToDisplayConverter.service";
 
 interface StatusProps {
   status: Status,
@@ -36,6 +36,11 @@ const chipStyle = createStyles({
 });
 
 class StatusComponent extends React.Component<StatusProps, {}> {
+
+  constructor(p: StatusProps) {
+    super(p);
+  }
+
   private getStyle(status: Status): string {
     switch (status) {
       case (Status.NotPlanned):

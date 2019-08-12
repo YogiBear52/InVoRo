@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Invoro.Api.src.Api;
+using MongoDB.Driver.Linq;
 
 namespace Invoro.Api.src.Services
 {
@@ -32,11 +33,11 @@ namespace Invoro.Api.src.Services
 
         public async Task<IEnumerable<string>> GetVotedFeaturesByUser(string userId)
         {
-            IEnumerable<string> result = this.FeaturesVotesCollection.AsQueryable<FeatureVote>()
-                .Where(featureVote => featureVote.UserId == userId)
-                .Select(feature => feature.FeatureId);
+            IMongoQueryable<string> result = this.FeaturesVotesCollection.AsQueryable<FeatureVote>().
+                Where(featureVote => featureVote.UserId == userId).
+                Select(feature => feature.FeatureId);
 
-            return result;
+            return await result.ToListAsync(base.RequestCancellationToken);
         }
 
         public async Task VoteToFeature(string featureId, string userId)

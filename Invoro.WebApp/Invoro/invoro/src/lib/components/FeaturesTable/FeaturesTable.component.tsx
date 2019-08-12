@@ -1,10 +1,12 @@
 import React, { ReactElement } from "react";
 import { Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
-import StatusComponent from "../Status.component";
-import VoteComponent from "../Vote.component";
+import StatusComponent from "../Status/Status.component";
+import VoteComponent from "../Vote/Vote.component";
 import Status from "../../dataModel/Status";
 import Feature from "../../dataModel/Feature";
 import FeaturesCategory from "../../dataModel/FeaturesCategory";
+import { strict } from "assert";
+import { string } from "prop-types";
 
 interface FeaturesTableProps {
   featuresCategories: FeaturesCategory[];
@@ -14,6 +16,10 @@ interface FeaturesTableProps {
 }
 
 export default class FeaturesTableComponent extends React.Component<FeaturesTableProps> {
+  public static deafaultProps = {
+    featuresVoted: new Set<string>()
+  };
+
   render() {
     return (
       <Paper>

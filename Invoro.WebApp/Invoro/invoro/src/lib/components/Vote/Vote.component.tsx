@@ -1,7 +1,7 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder'
-import StarIcon from '@material-ui/icons/Star'
+import VoteIconComponent from '../VoteIcons/VoteIcon.Component';
+import UnvoteIconComponent from '../VoteIcons/UnvoteIcon.Component';
 
 interface VoteProps {
     isVoted: Boolean;
@@ -21,7 +21,7 @@ class VoteComponent extends React.Component<VoteProps> {
     render() {
         return (
             <IconButton color="primary" onClick={() => this.handleOnClick()} aria-label="Vote for the feature">
-                {this.props.isVoted ? <StarIcon /> : <StarBorderIcon />}
+                {this.props.isVoted ? <VoteIconComponent /> : <UnvoteIconComponent />}
             </IconButton>
         );
     }
