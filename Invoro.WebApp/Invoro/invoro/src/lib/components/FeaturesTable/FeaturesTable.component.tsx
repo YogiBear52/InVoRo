@@ -16,7 +16,7 @@ interface FeaturesTableProps {
 }
 
 export default class FeaturesTableComponent extends React.Component<FeaturesTableProps> {
-  public static deafaultProps = {
+  public static defaultProps = {
     featuresVoted: new Set<string>()
   };
 
