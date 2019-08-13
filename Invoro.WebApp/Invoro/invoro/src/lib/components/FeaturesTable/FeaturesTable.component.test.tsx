@@ -109,4 +109,25 @@ describe("FeaturesTable", () => {
             }
         });
     });
+
+    it("render with no voted features set", () => {
+        // Prepare
+        let features: Feature[] = [new Feature("ID1", "NAME", Status.NotPlanned, "Link", new Date(), new Date()),
+        new Feature("ID2", "NAME", Status.NotPlanned, "Link", new Date(), new Date())];
+        let featuresCategories: FeatureCategory[] = [new FeatureCategory("MyCategory", features)];
+        let voteHandle = (id: string) => { };
+        let unvoteHandle = (id: string) => { };
+
+        // Action
+        let unvoteIcons =
+            mount(<FeaturesTableComponent
+                featuresCategories={featuresCategories}
+                featureVoteHandle={voteHandle}
+                featureUnvoteHandle={unvoteHandle} />)
+                .find("UnvoteIconComponent");
+
+        console.log(unvoteIcons.debug());
+        // Assert
+        expect(unvoteIcons.length).toBe(2);
+    });
 });
